@@ -13,11 +13,13 @@ namespace _VP_Project___Crazy_Eater
     public partial class Form1 : Form
     {
         public Scene scene { get; set; }
+        public Point MouseLocation { get; set; }
         public int InvincibilityCounter { get; set; }
 
         public Form1()
         {
             InitializeComponent();
+            MouseLocation = MousePosition;
             InvincibilityCounter = 0;
             scene = new Scene(Width, Height);
             DoubleBuffered = true;
@@ -40,12 +42,15 @@ namespace _VP_Project___Crazy_Eater
             scene.Draw(e.Graphics);
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e){}
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            MouseLocation = e.Location;
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            scene.MovePlayer(MousePosition);
+            scene.MovePlayer(MouseLocation);
             if (scene.Hit())
             {
                 InvincibilityTimer.Start();
