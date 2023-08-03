@@ -1,0 +1,11 @@
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\bin\Debug\(VP Project)  Crazy Eater.exe.config
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\bin\Debug\(VP Project)  Crazy Eater.exe
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\bin\Debug\(VP Project)  Crazy Eater.pdb
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.csproj.AssemblyReference.cache
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.csproj.SuggestedBindingRedirects.cache
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\_VP_Project___Crazy_Eater.Form1.resources
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\_VP_Project___Crazy_Eater.Properties.Resources.resources
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.csproj.GenerateResource.cache
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.csproj.CoreCompileInputs.cache
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.exe
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.pdb
