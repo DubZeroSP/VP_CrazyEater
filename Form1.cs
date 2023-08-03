@@ -82,7 +82,20 @@ namespace _VP_Project___Crazy_Eater
         {
             if (scene.GameOver())
             {
-                //TODO: MessageBox
+                string Text = "YOU HAVE DIED";
+                string Caption = "Would you like to restart?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                result = MessageBox.Show(Text, Caption, buttons);
+                if (result == DialogResult.Yes) 
+                {
+                    scene = new Scene(Width, Height);
+                }
+                if (result == DialogResult.No) 
+                {
+                    Application.Exit();
+                }
             }
         }
 
