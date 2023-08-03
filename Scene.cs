@@ -18,7 +18,7 @@ namespace _VP_Project___Crazy_Eater
         public Player player { get; set; }
         public List<Obstacle> Obstacles { get; set; }
         public List<Collectable> Collectables { get; set; }
-        public Collectable PowerUp { get; set; }
+        public PowerUp PowerUp { get; set; }
         private Random directionRNG { get; set; } = new Random(); //4
         private Random positionRNG { get; set; } = new Random(); // width/height
         private Random spawningRNG { get; set; } = new Random();
@@ -160,7 +160,7 @@ namespace _VP_Project___Crazy_Eater
                     }
                 }
 
-                PowerUp = new Collectable(new Point(x, y), 30, 1);
+                PowerUp = new PowerUp(new Point(x, y));
             }
         }
 
