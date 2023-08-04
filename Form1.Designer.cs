@@ -70,6 +70,7 @@
             this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.progressBar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(1703, 885);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crazy Eater";

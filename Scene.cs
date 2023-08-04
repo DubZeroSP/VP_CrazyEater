@@ -146,7 +146,7 @@ namespace _VP_Project___Crazy_Eater
                 int y = positionRNG.Next(100,Height-250);
                 Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints));
             }
-            if (powerupSpawnRate != 0 && PowerUp == null && spawningRNG.Next(powerupSpawnRate) == 0)
+            if (powerupSpawnRate != 0  && spawningRNG.Next(powerupSpawnRate) == 0)
             {
                 Point playerPos = player.Position;
                 int x, y;
@@ -167,21 +167,21 @@ namespace _VP_Project___Crazy_Eater
                         default: x = positionRNG.Next(playerPos.X + 200, Width - 225); break;
                     }
                 }
-                if (playerPos.Y - 200 < 100)
+                if (playerPos.Y - 75 < 100)
                 {
-                    y = positionRNG.Next(playerPos.Y + 200, Height - 250);
+                    y = positionRNG.Next(playerPos.Y + 75, Height - 250);
                 }
-                else if (playerPos.Y + 200 > Height - 250)
+                else if (playerPos.Y + 75 > Height - 250)
                 {
-                    y = positionRNG.Next(100, playerPos.Y - 200);
+                    y = positionRNG.Next(100, playerPos.Y - 75);
                 }
                 else
                 {
                     int side = directionRNG.Next(2);
                     switch (side)
                     {
-                        case 0: y = positionRNG.Next(100, playerPos.Y - 200); break;
-                        default: y = positionRNG.Next(playerPos.Y + 200, Height - 250); break;
+                        case 0: y = positionRNG.Next(100, playerPos.Y - 75); break;
+                        default: y = positionRNG.Next(playerPos.Y + 75, Height - 250); break;
                     }
                 }
 
@@ -248,7 +248,9 @@ namespace _VP_Project___Crazy_Eater
             Level++;
             switch (Level)
             {
-                case 2: /*TODO*/ break;
+                case 2:
+                    powerupSpawnRate = 100;
+                    break;
                 case 3: /*TODO*/ break;
                 case 4: /*TODO*/ break;
             }
