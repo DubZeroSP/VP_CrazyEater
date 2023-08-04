@@ -14,12 +14,12 @@ namespace _VP_Project___Crazy_Eater
         public int Size { get; set; }
         public int Speed { get; set; }
         public int Direction { get; set; } //0 = up, 1 = right, 2 = down, 3 = left
-        public Obstacle(Point position,int direction)
+        public Obstacle(Point position,int direction, int size, int speed)
         {
             Position = position;
             Direction = direction;
-            Size = 50;
-            Speed = 4;
+            Size = size;
+            Speed = speed;
         }
         public void Draw(Graphics g)
         {

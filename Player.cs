@@ -12,23 +12,19 @@ namespace _VP_Project___Crazy_Eater
     {
         public Point Position { get; set; }
         public int Size { get; set; }
+        public int Speed { get; set; }
         public int Health { get; set; }
         public bool isInvincible { get; set; }
         public Player(Point pos)
         {
             Position = pos;
-            Size = 100;
-            Health = 3;
+            Size = 75;
+            Speed = 5;
+            Health = 5;
             isInvincible = false;
         }
         public void Draw(Graphics g)
         {
-            /*Image image = Image.FromFile(@"Images\shrek.jpg");
-            if (isInvincible )
-            {
-                image.RotateFlip(RotateFlipType.RotateNoneFlipY);
-            }
-            g.DrawImage(image, Position.X - Size/2, Position.Y - Size/2, Size, Size);*/
             Brush b = new SolidBrush(Color.White);
             if (isInvincible)
             {
@@ -38,10 +34,14 @@ namespace _VP_Project___Crazy_Eater
             b.Dispose();
 
             Brush healthBrush = new SolidBrush(Color.Pink);
-            for (int i = 1; i <= Health; i++)
+            for (int j=1; j<=((Health-1)/10)+1; j++)
             {
-                g.FillEllipse(healthBrush, i * 15, 15, 10, 10);
+                for (int i = 1; i <= Math.Min(10,Health-(10*(j-1))); i++)
+                {
+                    g.FillEllipse(healthBrush, i * 15, j*15, 10, 10);
+                }
             }
+            
             healthBrush.Dispose();
         }
         public void Move(Point Towards,int width, int height)
@@ -62,9 +62,8 @@ namespace _VP_Project___Crazy_Eater
             double unitVectorY = vectorY / distance;
 
             // Scaled Vectors
-            int speed = 4;
-            double scaledVectorX = speed * unitVectorX;
-            double scaledVectorY = speed * unitVectorY;
+            double scaledVectorX = Speed * unitVectorX;
+            double scaledVectorY = Speed * unitVectorY;
 
             //New Position
             double positionX = Math.Min(Math.Max(Position.X + (int)scaledVectorX, 60), width);

@@ -9,3 +9,4 @@ D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy
 D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.csproj.CoreCompileInputs.cache
 D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.exe
 D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\(VP Project)  Crazy Eater.pdb
+D:\Desktop Folders\Uni\Code\CodeC#\(VP Project)  Crazy Eater\(VP Project)  Crazy Eater\obj\Debug\_VP_Project___Crazy_Eater.MainForm.resources
