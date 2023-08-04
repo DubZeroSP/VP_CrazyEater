@@ -19,7 +19,7 @@ namespace _VP_Project___Crazy_Eater
         {
             Position = pos;
             Size = 75;
-            Speed = 5;
+            Speed = 4;
             Health = 5;
             isInvincible = false;
         }
