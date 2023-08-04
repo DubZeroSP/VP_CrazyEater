@@ -13,6 +13,7 @@ namespace _VP_Project___Crazy_Eater
     public partial class Form1 : Form
     {
         public Scene scene { get; set; }
+        public int Level { get; set; }
         public Point MouseLocation { get; set; }
         public int InvincibilityCounter { get; set; }
 
@@ -20,15 +21,18 @@ namespace _VP_Project___Crazy_Eater
         {
             InitializeComponent();
             MouseLocation = MousePosition;
-            InvincibilityCounter = 0;
             scene = new Scene(Width, Height);
+            Level = 1;
+            InvincibilityCounter = 0;
             DoubleBuffered = true;
             StartTimer.Interval = 5000;
             StartTimer.Start();
             timer1.Interval = 10;
             timer1.Start();
+            progressBar.SetBounds(Width - 300, 15, 270, 25);
             progressBar.Value = 0;
-            progressBar.Maximum = 20;
+            progressBar.Maximum = 15;
+            
         }
         public void Start()
         {
@@ -87,6 +91,8 @@ namespace _VP_Project___Crazy_Eater
         {
             if (scene.GameOver())
             {
+                SpawnTimer.Stop();
+                timer1.Stop();
                 string Text = "YOU HAVE DIED";
                 string Caption = "Would you like to restart?";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -96,6 +102,8 @@ namespace _VP_Project___Crazy_Eater
                 if (result == DialogResult.Yes) 
                 {
                     scene = new Scene(Width, Height);
+                    StartTimer.Start();
+                    timer1.Start();
                 }
                 if (result == DialogResult.No) 
                 {
@@ -123,7 +131,17 @@ namespace _VP_Project___Crazy_Eater
         private void LevelUp()
         {
             progressBar.Value = 0;
-            progressBar.Maximum = 100;
+            Level++;
+            progressBar.Maximum = 10 + (5 * Level);
+            /*switch (Level)
+            {
+                case 2: *//*TODO set progress bar maximum*//* break;
+                case 3: *//*TODO*//* break;
+                case 4: *//*TODO*//* break;
+                case 5: *//*TODO*//* break;
+                default: *//*TODO*//* break;
+            }*/
+            scene.LevelUp();
         }
     }
 }

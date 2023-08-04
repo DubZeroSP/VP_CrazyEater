@@ -12,32 +12,55 @@ namespace _VP_Project___Crazy_Eater
 {
     public class Scene
     {
-        public bool Rules { get; set; }
+        //
         public int Width { get; set; }
         public int Height { get; set; }
+     
+        public bool Rules { get; set; }
+        public int Level { get; set; }
+
+        //Objects
         public Player player { get; set; }
         public List<Obstacle> Obstacles { get; set; }
         public List<Collectable> Collectables { get; set; }
         public PowerUp PowerUp { get; set; }
-        private Random directionRNG { get; set; } = new Random(); //4
-        private Random positionRNG { get; set; } = new Random(); // width/height
-        private Random spawningRNG { get; set; } = new Random();
-        //spawn rates = 1/#
+
+        //Properties
+        public int obstacleSpeed { get; set; }
+        public int obstacleSize { get; set; }
+        public int collectableSize { get; set; }
+        public int collectablePoints { get; set; }
+
+        //spawn rates = 1/# every 10th of a second
         public int obstacleSpawnRate { get; set; }
         public int collectableSpawnRate { get; set; }
         public int powerupSpawnRate { get; set; }
 
+        //Random Number Generators
+        private Random directionRNG { get; set; } = new Random(); //4
+        private Random positionRNG { get; set; } = new Random(); // width/height
+        private Random spawningRNG { get; set; } = new Random();
+        
+
         public Scene(int width, int height) 
         {
-            Obstacles = new List<Obstacle>();
-            Collectables = new List<Collectable>();
             Width = width;
             Height = height;
-            player = new Player(new Point(Width / 2, Height / 2));
+            Level = 1;
             Rules = true;
+
+            player = new Player(new Point(Width / 2, Height / 2));
+            Obstacles = new List<Obstacle>();
+            Collectables = new List<Collectable>();
+
+            obstacleSize = 50;
+            obstacleSpeed = 4;
+            collectableSize = 30;
+            collectablePoints = 1;
+
             obstacleSpawnRate = 10;
-            collectableSpawnRate = 0;
-            powerupSpawnRate = 1;
+            collectableSpawnRate = 20;
+            powerupSpawnRate = 0;
         }
         public void Draw(Graphics g)
         {
@@ -86,6 +109,8 @@ namespace _VP_Project___Crazy_Eater
             {
                 PowerUp.Draw(g);
             }
+            Brush levelBrush = new SolidBrush(Color.Black);
+            g.DrawString(Level.ToString(), new Font(FontFamily.GenericSansSerif, 30), levelBrush, Width - 340, 7);
         }
         public void MovePlayer(Point Position)
         {
@@ -101,7 +126,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Spawn()
         {
-            if (obstacleSpawnRate != 0 && spawningRNG.Next(100)%obstacleSpawnRate == 0)
+            if (obstacleSpawnRate != 0 && spawningRNG.Next(obstacleSpawnRate) == 0)
             {
                 int dir = directionRNG.Next(4);
                 int x = 0;
@@ -113,15 +138,15 @@ namespace _VP_Project___Crazy_Eater
                     case 1: x = 0; y = positionRNG.Next(Height); break;
                     default: y = Height; x = positionRNG.Next(Width); break;
                 }
-                Obstacles.Add(new Obstacle(new Point(x, y), dir));
+                Obstacles.Add(new Obstacle(new Point(x, y), dir,obstacleSize,obstacleSpeed));
             }
-            if (collectableSpawnRate != 0 &&  (Collectables.Count <= 3 || spawningRNG.Next(100)%20 == 0))
+            if (collectableSpawnRate != 0 &&  (Collectables.Count <= 3 || spawningRNG.Next(collectableSpawnRate) == 0))
             {
                 int x = positionRNG.Next(100,Width-225);
                 int y = positionRNG.Next(100,Height-250);
-                Collectables.Add(new Collectable(new Point(x, y), 30, 1));
+                Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints));
             }
-            if (powerupSpawnRate != 0 && PowerUp == null && spawningRNG.Next(1000)%powerupSpawnRate == 0)
+            if (powerupSpawnRate != 0 && PowerUp == null && spawningRNG.Next(powerupSpawnRate) == 0)
             {
                 Point playerPos = player.Position;
                 int x, y;
@@ -217,6 +242,16 @@ namespace _VP_Project___Crazy_Eater
         public bool GameOver()
         {
             return player.Health <= 0;
+        }
+        public void LevelUp()
+        {
+            Level++;
+            switch (Level)
+            {
+                case 2: /*TODO*/ break;
+                case 3: /*TODO*/ break;
+                case 4: /*TODO*/ break;
+            }
         }
     }
 }

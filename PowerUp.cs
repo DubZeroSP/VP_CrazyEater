@@ -10,10 +10,13 @@ namespace _VP_Project___Crazy_Eater
     public class PowerUp
     {
         public Point Position { get; set; }
+        public int Level { get; set; }
         public Random powerupGenerator{ get; set; }
         public PowerUp(Point pos)
         {
+            Level = 1;
             Position = pos;
+            powerupGenerator = new Random();
         }
         public void Draw(Graphics g)
         {
