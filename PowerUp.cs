@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,23 +12,30 @@ namespace _VP_Project___Crazy_Eater
     public class PowerUp
     {
         public Point Position { get; set; }
+        public int Time { get; set; }
         public int Level { get; set; }
         public Random powerupGenerator{ get; set; }
-        public PowerUp(Point pos)
+        public int Size { get; set; }
+        public PowerUp(Point pos, int level)
         {
-            Level = 1;
+            Size = 20;
+            Time = 3;
+            Level = level;
             Position = pos;
             powerupGenerator = new Random();
         }
         public void Draw(Graphics g)
         {
             Brush b = new SolidBrush(Color.Purple);
-            g.FillEllipse(b, Position.X - 10, Position.Y - 10, 20, 20);
+            g.FillEllipse(b, Position.X - Size/2, Position.Y - Size/2, Size, Size);
             b.Dispose();
+            Brush TimeBrush = new SolidBrush(Color.Magenta);
+            g.DrawString(Time.ToString(), new Font(FontFamily.GenericSansSerif, 10), TimeBrush, Position.X - 5, Position.Y - 5);
+            TimeBrush.Dispose();
         }
         public int Hit()
         {
-            return powerupGenerator.Next(10);
+            return powerupGenerator.Next(Level);
         }
     }
 }

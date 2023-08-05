@@ -11,12 +11,14 @@ namespace _VP_Project___Crazy_Eater
     public class Player
     {
         public Point Position { get; set; }
+        public Color Color { get; set; }
         public int Size { get; set; }
         public int Speed { get; set; }
         public int Health { get; set; }
         public bool isInvincible { get; set; }
         public Player(Point pos)
         {
+            Color = Color.White;
             Position = pos;
             Size = 75;
             Speed = 4;
@@ -25,7 +27,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color.White);
+            Brush b = new SolidBrush(Color);
             if (isInvincible)
             {
                 b = new SolidBrush(Color.LightGray);

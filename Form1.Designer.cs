@@ -34,6 +34,9 @@
             this.InvincibilityTimer = new System.Windows.Forms.Timer(this.components);
             this.StartTimer = new System.Windows.Forms.Timer(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.PowerUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.DespawnTimer = new System.Windows.Forms.Timer(this.components);
+            this.PowerTextTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timer1
@@ -63,6 +66,19 @@
             this.progressBar.Size = new System.Drawing.Size(269, 23);
             this.progressBar.TabIndex = 0;
             // 
+            // PowerUpTimer
+            // 
+            this.PowerUpTimer.Interval = 1000;
+            this.PowerUpTimer.Tick += new System.EventHandler(this.PowerUpTimer_Tick);
+            // 
+            // DespawnTimer
+            // 
+            this.DespawnTimer.Tick += new System.EventHandler(this.DespawnTimer_Tick);
+            // 
+            // PowerTextTimer
+            // 
+            this.PowerTextTimer.Tick += new System.EventHandler(this.PowerTextTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -88,6 +104,9 @@
         private System.Windows.Forms.Timer InvincibilityTimer;
         private System.Windows.Forms.Timer StartTimer;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Timer PowerUpTimer;
+        private System.Windows.Forms.Timer DespawnTimer;
+        private System.Windows.Forms.Timer PowerTextTimer;
     }
 }
 

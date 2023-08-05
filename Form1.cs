@@ -16,22 +16,31 @@ namespace _VP_Project___Crazy_Eater
         public int Level { get; set; }
         public Point MouseLocation { get; set; }
         public int InvincibilityCounter { get; set; }
+        public string PowerText { get; set; }
 
         public Form1()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             MouseLocation = MousePosition;
             scene = new Scene(Width, Height);
             Level = 1;
             InvincibilityCounter = 0;
-            DoubleBuffered = true;
+            PowerText = "";
+
             StartTimer.Interval = 5000;
             StartTimer.Start();
             timer1.Interval = 10;
             timer1.Start();
+            DespawnTimer.Interval = 1000;
+            PowerUpTimer.Interval = 3000;
+            PowerTextTimer.Interval = 750;
+
             progressBar.SetBounds(Width - 300, 15, 270, 25);
             progressBar.Value = 0;
             progressBar.Maximum = 15;
+            
+            
             
         }
         public void Start()
@@ -44,6 +53,11 @@ namespace _VP_Project___Crazy_Eater
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             scene.Draw(e.Graphics);
+            if (PowerText != "")
+            {
+                Brush textBrush = new SolidBrush(Color.Black);
+                e.Graphics.DrawString(PowerText, new Font(FontFamily.GenericSansSerif, 20), textBrush, Width - 300, 30);
+            }
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -65,6 +79,31 @@ namespace _VP_Project___Crazy_Eater
             {
                 LevelUp();
             }
+            int value = scene.PowerUpHit();
+            if (value != -1)
+            {
+                PowerTextTimer.Start();
+                switch (value)
+                {
+                    case 0: PowerText = "Health Up";break;
+                    case 1: PowerText = "Speed Up"; break;
+                    case 2: PowerText = "Size Up"; break;
+                    case 3: PowerText = "Speed Down"; break;
+                    case 4: PowerText = "Size Down"; break;
+                    case 5: PowerText = "Double Points"; break;
+                    case 6: PowerText = "Player = Obstacle"; break;
+                    case 7: PowerText = "Reverse Controls"; break;
+                    case 8: PowerText = "Obstacles <-> Collectables"; break;
+                    case 9: PowerText = "Laser Mode!"; break;
+
+                }
+                DespawnTimer.Stop();
+                scene.Power(value);
+                if (value > 0)
+                {
+                    PowerUpTimer.Start();
+                }
+            }
             Invalidate();
         }
 
@@ -85,6 +124,10 @@ namespace _VP_Project___Crazy_Eater
         private void SpawnTimer_Tick(object sender, EventArgs e)
         {
             scene.Spawn();
+            if (!DespawnTimer.Enabled && scene.PowerUp != null)
+            {
+                DespawnTimer.Start();
+            }
             Invalidate();
         }
         private void CheckHealth()
@@ -132,16 +175,32 @@ namespace _VP_Project___Crazy_Eater
         {
             progressBar.Value = 0;
             Level++;
-            progressBar.Maximum = 10 + (5 * Level);
-            /*switch (Level)
-            {
-                case 2: *//*TODO set progress bar maximum*//* break;
-                case 3: *//*TODO*//* break;
-                case 4: *//*TODO*//* break;
-                case 5: *//*TODO*//* break;
-                default: *//*TODO*//* break;
-            }*/
+            progressBar.Maximum = 10 + (10 * Level);
             scene.LevelUp();
+        }
+
+        private void PowerUpTimer_Tick(object sender, EventArgs e)
+        {
+            scene.RevertPower();
+            PowerUpTimer.Stop();
+        }
+
+        private void DespawnTimer_Tick(object sender, EventArgs e)
+        {
+            if (scene.PowerUp == null)
+            {
+                DespawnTimer.Stop();
+            }
+            else
+            {
+                scene.LowerPowerTime();
+            }
+        }
+
+        private void PowerTextTimer_Tick(object sender, EventArgs e)
+        {
+            PowerText = "";
+            PowerTextTimer.Stop();
         }
     }
 }
