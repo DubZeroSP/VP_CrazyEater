@@ -40,7 +40,7 @@ namespace _VP_Project___Crazy_Eater
             {
                 for (int i = 1; i <= Math.Min(10,Health-(10*(j-1))); i++)
                 {
-                    g.FillEllipse(healthBrush, i * 15, j*15, 10, 10);
+                    g.FillEllipse(healthBrush, i * 15, j * 15, 10, 10);
                 }
             }
             

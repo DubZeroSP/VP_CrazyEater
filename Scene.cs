@@ -46,6 +46,7 @@ namespace _VP_Project___Crazy_Eater
         //Other
         public int ActivePower { get; set; }
         public int oldPlayerSize { get; set; }
+        public bool Laser { get; set; }
 
 
         public Scene(int width, int height) 
@@ -105,12 +106,14 @@ namespace _VP_Project___Crazy_Eater
                 g.DrawString("- ???", f, TextBrush, 90, 240);
                 collectablesBrush.Dispose();
             }
-            player.Draw(g);
-            foreach (Obstacle o in Obstacles)
+            if (Laser)
             {
-                o.Draw(g);
+                Pen laserPen = new Pen(Color.Red, 3);
+                g.DrawLine(laserPen, player.Position.X, 0, player.Position.X, Height);
+                g.DrawLine(laserPen, 0, player.Position.Y, Width, player.Position.Y);
+                laserPen.Dispose();
             }
-            foreach(Collectable c in Collectables)
+            foreach (Collectable c in Collectables)
             {
                 c.Draw(g);
             }
@@ -118,8 +121,14 @@ namespace _VP_Project___Crazy_Eater
             {
                 PowerUp.Draw(g);
             }
+            foreach (Obstacle o in Obstacles)
+            {
+                o.Draw(g);
+            }
+            player.Draw(g);
             Brush levelBrush = new SolidBrush(Color.Black);
             g.DrawString(Level.ToString(), new Font(FontFamily.GenericSansSerif, 30), levelBrush, Width - 340, 7);
+            levelBrush.Dispose();
         }
         public void MovePlayer(Point Position)
         {
@@ -200,6 +209,19 @@ namespace _VP_Project___Crazy_Eater
 
         public bool Hit()
         {
+            if (Laser){
+                int x = player.Position.X;
+                int y = player.Position.Y;
+                for (int i = 0; i < Obstacles.Count; i++)
+                {
+                    int xd = Math.Abs(Obstacles[i].Position.X - x);
+                    int yd = Math.Abs(Obstacles[i].Position.Y - y);
+                    if (xd < obstacleSize || yd < obstacleSize)
+                    {
+                        Obstacles.RemoveAt(i);
+                    }
+                }
+            }
             if (player.isInvincible) return false;
             Point playerPos = player.Position;
             int playerSize = player.Size/2;
@@ -336,20 +358,33 @@ namespace _VP_Project___Crazy_Eater
                 case 2: player.Size += 10; break; //Size Up
                 case 3: player.Speed -= 2; break; //Speed Down
                 case 4: player.Size -= 10; break; //Size Down
-                case 5: collectablePoints *= 2; collectableSize *= 2; // Double Points
+                case 5: // Double Points
+                    collectablePoints *= 2; collectableSize *= 2; 
                     foreach (Collectable c in Collectables)
                     {
                         c.Size *= 2; c.Points *= 2;
                     }
                     break; 
-                case 6: 
+                case 6: //Player = Obstacle
                     player.Color = Color.Black;
                     oldPlayerSize = player.Size;
                     player.Size = obstacleSize;
-                    break; //Player = Obstacle
-                case 7: player.Speed *= -1; break; //Reverse Controls
+                    break; 
+                case 7: 
+                    player.Speed *= -1;
+                    for (int i = 0; i < Obstacles.Count; i++)
+                    {
+                        double xd = Math.Pow(Obstacles[i].Position.X - player.Position.X,2);
+                        double yd = Math.Pow(Obstacles[i].Position.Y - player.Position.Y, 2);
+                        double d = Math.Sqrt(xd + yd);
+                        if (d <= 100)
+                        {
+                            Obstacles.RemoveAt(i);
+                        }
+                    }
+                    break; //Reverse Controls
                 case 8: /*Swap Obstacles & Collectables*/ break;
-                case 9: /*Lazar*/ break;
+                case 9: Laser = true; break;
                 default: break;
             }
         }
@@ -374,7 +409,7 @@ namespace _VP_Project___Crazy_Eater
                     break;
                 case 7: player.Speed *= -1; break;
                 case 8: /*Swap Obstacles & Collectables*/ break;
-                case 9: /*Lazar*/ break;
+                case 9: Laser = false; break;
                 default:break;
             }
             ActivePower = -1;
