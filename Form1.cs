@@ -17,6 +17,7 @@ namespace _VP_Project___Crazy_Eater
         public Point MouseLocation { get; set; }
         public int InvincibilityCounter { get; set; }
         public string PowerText { get; set; }
+        public bool SwapObsColl { get; set; }
 
         public Form1()
         {
@@ -27,6 +28,7 @@ namespace _VP_Project___Crazy_Eater
             Level = 1;
             InvincibilityCounter = 0;
             PowerText = "";
+            SwapObsColl = false;
 
             StartTimer.Interval = 5000;
             StartTimer.Start();
@@ -67,15 +69,32 @@ namespace _VP_Project___Crazy_Eater
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             scene.MovePlayer(MouseLocation);
             Invalidate();
             if (scene.Hit())
             {
+                if (!SwapObsColl)
+                {
+                    InvincibilityTimer.Start();
+                    CheckHealth();
+                }
+                else
+                {
+                    progressBar.Value += 1;
+                }
+                
+            }
+            
+            int pts = scene.Collect();
+            if (!SwapObsColl)
+            {
+                progressBar.Value += pts;
+            }
+            else
+            {
                 InvincibilityTimer.Start();
                 CheckHealth();
             }
-            progressBar.Value += scene.Collect();
             if (progressBar.Value >= progressBar.Maximum)
             {
                 LevelUp();
@@ -94,7 +113,7 @@ namespace _VP_Project___Crazy_Eater
                     case 5: PowerText = "Double Points"; break;
                     case 6: PowerText = "Player = Obstacle"; break;
                     case 7: PowerText = "Reverse Controls"; break;
-                    case 8: PowerText = "Obstacles <-> Collectables"; break;
+                    case 8: PowerText = "Obstacles <-> Collectables"; SwapObsColl = true; break;
                     case 9: PowerText = "Laser Mode!"; break;
 
                 }
@@ -183,6 +202,7 @@ namespace _VP_Project___Crazy_Eater
         private void PowerUpTimer_Tick(object sender, EventArgs e)
         {
             scene.RevertPower();
+            if (SwapObsColl) SwapObsColl = false;
             PowerUpTimer.Stop();
         }
 

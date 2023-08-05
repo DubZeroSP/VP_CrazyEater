@@ -28,8 +28,10 @@ namespace _VP_Project___Crazy_Eater
         //Properties
         public int obstacleSpeed { get; set; }
         public int obstacleSize { get; set; }
+        public Color obstacleColor { get; set; }
         public int collectableSize { get; set; }
         public int collectablePoints { get; set; }
+        public Color collectableColor { get; set; }
         public int powerupLevel { get; set; }
 
         //spawn rates = 1/# every 10th of a second
@@ -46,6 +48,7 @@ namespace _VP_Project___Crazy_Eater
         //Other
         public int ActivePower { get; set; }
         public int oldPlayerSize { get; set; }
+        public bool SwapObsColl { get; set; }
         public bool Laser { get; set; }
 
 
@@ -62,8 +65,10 @@ namespace _VP_Project___Crazy_Eater
 
             obstacleSize = 50;
             obstacleSpeed = 4;
+            obstacleColor = Color.Black;
             collectableSize = 30;
             collectablePoints = 1;
+            collectableColor = Color.LightGreen;
 
             obstacleSpawnRate = 10;
             collectableSpawnRate = 20;
@@ -156,13 +161,13 @@ namespace _VP_Project___Crazy_Eater
                     case 1: x = 0; y = positionRNG.Next(Height); break;
                     default: y = Height; x = positionRNG.Next(Width); break;
                 }
-                Obstacles.Add(new Obstacle(new Point(x, y), dir,obstacleSize,obstacleSpeed));
+                Obstacles.Add(new Obstacle(new Point(x, y), dir,obstacleSize,obstacleSpeed,obstacleColor));
             }
             if (collectableSpawnRate != 0 && Collectables.Count < 15 && (Collectables.Count <= 3 || spawningRNG.Next(collectableSpawnRate) == 0))
             {
                 int x = positionRNG.Next(100,Width-225);
                 int y = positionRNG.Next(100,Height-250);
-                Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints));
+                Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints,collectableColor));
             }
             if (powerupSpawnRate != 0 && PowerUp == null && ActivePower == -1 && spawningRNG.Next(powerupSpawnRate) == 0)
             {
@@ -222,21 +227,28 @@ namespace _VP_Project___Crazy_Eater
                     }
                 }
             }
-            if (player.isInvincible) return false;
+            if (!SwapObsColl && player.isInvincible) return false;
             Point playerPos = player.Position;
             int playerSize = player.Size/2;
 
-            foreach (Obstacle o in Obstacles)
+            for (int i = 0; i < Obstacles.Count; i++)
             {
-                Point obstaclePos = o.Position;
-                int obstacleSize = o.Size/2;
+                Point obstaclePos = Obstacles[i].Position;
+                int obstacleSize = Obstacles[i].Size / 2;
                 double xd = Math.Pow(obstaclePos.X-playerPos.X, 2);
                 double yd = Math.Pow(obstaclePos.Y-playerPos.Y, 2);
                 double d = Math.Sqrt(xd + yd);
                 if (d <= obstacleSize + playerSize)
                 {   
-                    player.Health -= 1;
-                    player.isInvincible = true;
+                    if (!SwapObsColl)
+                    {
+                        player.Health -= 1;
+                        player.isInvincible = true;
+                    }
+                    else
+                    {
+                        Obstacles.RemoveAt(i);
+                    }
                     return true;
                 }
             }
@@ -244,6 +256,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public int Collect()
         {
+            if (SwapObsColl && player.isInvincible) return 0;
             int value = 0;
             Point playerPos = player.Position;
             int playerSize = player.Size / 2;
@@ -256,8 +269,18 @@ namespace _VP_Project___Crazy_Eater
                 double d = Math.Sqrt(xd + yd);
                 if (d <= collectableSize + playerSize)
                 {
-                    value += Collectables[i].Points;
-                    Collectables.RemoveAt(i);
+                    if (!SwapObsColl)
+                    {
+                        value += Collectables[i].Points;
+                        Collectables.RemoveAt(i);
+                    }
+                    else
+                    {
+                        player.Health -= 1;
+                        player.isInvincible = true;
+                        value = 1;
+                    }
+                    
                 }
             }
             return value;
@@ -370,7 +393,7 @@ namespace _VP_Project___Crazy_Eater
                     oldPlayerSize = player.Size;
                     player.Size = obstacleSize;
                     break; 
-                case 7: 
+                case 7: //Reverse Controls
                     player.Speed *= -1;
                     for (int i = 0; i < Obstacles.Count; i++)
                     {
@@ -382,9 +405,21 @@ namespace _VP_Project___Crazy_Eater
                             Obstacles.RemoveAt(i);
                         }
                     }
-                    break; //Reverse Controls
-                case 8: /*Swap Obstacles & Collectables*/ break;
-                case 9: Laser = true; break;
+                    break; 
+                case 8: //Swap Obstacles & Collectables
+                    SwapObsColl = true;
+                    obstacleColor = Color.LightGreen;
+                    collectableColor = Color.Black;
+                    foreach (Obstacle o in Obstacles)
+                    {
+                        o.Color = Color.LightGreen;
+                    }
+                    foreach (Collectable c in Collectables)
+                    {
+                        c.Color = Color.Black;
+                    }
+                    break; 
+                case 9: Laser = true; break; //Lazar
                 default: break;
             }
         }
@@ -408,7 +443,19 @@ namespace _VP_Project___Crazy_Eater
                     oldPlayerSize = -1;
                     break;
                 case 7: player.Speed *= -1; break;
-                case 8: /*Swap Obstacles & Collectables*/ break;
+                case 8: 
+                    SwapObsColl = false;
+                    obstacleColor = Color.Black; 
+                    collectableColor = Color.LightGreen;
+                    foreach (Obstacle o in Obstacles)
+                    {
+                        o.Color = Color.Black;
+                    }
+                    foreach (Collectable c in Collectables)
+                    {
+                        c.Color = Color.LightGreen;
+                    }
+                    break;
                 case 9: Laser = false; break;
                 default:break;
             }

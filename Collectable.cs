@@ -10,10 +10,12 @@ namespace _VP_Project___Crazy_Eater
     public class Collectable
     {
         public Point Position { get; set; }
+        public Color Color { get; set; }
         public int Size { get; set; }
         public int Points { get; set; }
-        public Collectable(Point position, int size, int points)
+        public Collectable(Point position, int size, int points, Color color)
         {
+            Color = color;
             Position = position;
             Size = size;
             Points = points;
@@ -21,7 +23,7 @@ namespace _VP_Project___Crazy_Eater
         
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color.LightGreen);
+            Brush b = new SolidBrush(Color);
             g.FillEllipse(b, Position.X - Size / 2, Position.Y - Size / 2, Size, Size);
             b.Dispose();
         }

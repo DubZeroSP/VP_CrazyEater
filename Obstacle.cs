@@ -11,11 +11,13 @@ namespace _VP_Project___Crazy_Eater
     public class Obstacle
     {
         public Point Position { get; set; }
+        public Color Color { get; set; }
         public int Size { get; set; }
         public int Speed { get; set; }
         public int Direction { get; set; } //0 = up, 1 = right, 2 = down, 3 = left
-        public Obstacle(Point position,int direction, int size, int speed)
+        public Obstacle(Point position,int direction, int size, int speed,Color color)
         {
+            Color = color;
             Position = position;
             Direction = direction;
             Size = size;
@@ -23,7 +25,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color.Black);
+            Brush b = new SolidBrush(Color);
             g.FillEllipse(b,Position.X-Size/2,Position.Y-Size/2,Size,Size);
         }
         public void Move()
