@@ -56,7 +56,7 @@ namespace _VP_Project___Crazy_Eater
             if (PowerText != "")
             {
                 Brush textBrush = new SolidBrush(Color.Black);
-                e.Graphics.DrawString(PowerText, new Font(FontFamily.GenericSansSerif, 20), textBrush, Width - 300, 30);
+                e.Graphics.DrawString(PowerText, new Font(FontFamily.GenericSansSerif, 20), textBrush, Width/2 - 200 , 15);
             }
         }
 
@@ -69,6 +69,7 @@ namespace _VP_Project___Crazy_Eater
         {
 
             scene.MovePlayer(MouseLocation);
+            Invalidate();
             if (scene.Hit())
             {
                 InvincibilityTimer.Start();

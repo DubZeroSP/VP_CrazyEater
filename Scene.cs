@@ -45,6 +45,7 @@ namespace _VP_Project___Crazy_Eater
 
         //Other
         public int ActivePower { get; set; }
+        public int oldPlayerSize { get; set; }
 
 
         public Scene(int width, int height) 
@@ -68,6 +69,7 @@ namespace _VP_Project___Crazy_Eater
             powerupSpawnRate = 0;
 
             ActivePower = -1;
+            oldPlayerSize = -1;
         }
         public void Draw(Graphics g)
         {
@@ -147,13 +149,13 @@ namespace _VP_Project___Crazy_Eater
                 }
                 Obstacles.Add(new Obstacle(new Point(x, y), dir,obstacleSize,obstacleSpeed));
             }
-            if (collectableSpawnRate != 0 &&  (Collectables.Count <= 3 || spawningRNG.Next(collectableSpawnRate) == 0))
+            if (collectableSpawnRate != 0 && Collectables.Count < 15 && (Collectables.Count <= 3 || spawningRNG.Next(collectableSpawnRate) == 0))
             {
                 int x = positionRNG.Next(100,Width-225);
                 int y = positionRNG.Next(100,Height-250);
                 Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints));
             }
-            if (powerupSpawnRate != 0 && PowerUp == null && spawningRNG.Next(powerupSpawnRate) == 0)
+            if (powerupSpawnRate != 0 && PowerUp == null && ActivePower == -1 && spawningRNG.Next(powerupSpawnRate) == 0)
             {
                 Point playerPos = player.Position;
                 int x, y;
@@ -340,7 +342,11 @@ namespace _VP_Project___Crazy_Eater
                         c.Size *= 2; c.Points *= 2;
                     }
                     break; 
-                case 6: player.Color = Color.Black; break; //Player = Obstacle
+                case 6: 
+                    player.Color = Color.Black;
+                    oldPlayerSize = player.Size;
+                    player.Size = obstacleSize;
+                    break; //Player = Obstacle
                 case 7: player.Speed *= -1; break; //Reverse Controls
                 case 8: /*Swap Obstacles & Collectables*/ break;
                 case 9: /*Lazar*/ break;
@@ -361,7 +367,11 @@ namespace _VP_Project___Crazy_Eater
                         c.Size /= 2; c.Points /= 2;
                     }
                     break;
-                case 6: player.Color = Color.White; break;
+                case 6: 
+                    player.Color = Color.White;
+                    player.Size = oldPlayerSize;
+                    oldPlayerSize = -1;
+                    break;
                 case 7: player.Speed *= -1; break;
                 case 8: /*Swap Obstacles & Collectables*/ break;
                 case 9: /*Lazar*/ break;
