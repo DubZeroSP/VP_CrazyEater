@@ -38,6 +38,7 @@
             // btn_StartGame
             // 
             this.btn_StartGame.BackColor = System.Drawing.Color.Transparent;
+            this.btn_StartGame.BackgroundImage = global::_VP_Project___Crazy_Eater.Properties.Resources.StartGameIMG;
             this.btn_StartGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_StartGame.FlatAppearance.BorderSize = 0;
             this.btn_StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -52,6 +53,7 @@
             // btn_Exit
             // 
             this.btn_Exit.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Exit.BackgroundImage = global::_VP_Project___Crazy_Eater.Properties.Resources.ExitIMG;
             this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Exit.Location = new System.Drawing.Point(38, 602);
@@ -64,6 +66,7 @@
             // btn_Options
             // 
             this.btn_Options.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Options.BackgroundImage = global::_VP_Project___Crazy_Eater.Properties.Resources.OptionsIMG;
             this.btn_Options.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Options.Location = new System.Drawing.Point(38, 384);
             this.btn_Options.Name = "btn_Options";
@@ -74,6 +77,7 @@
             // btn_MuteMusic
             // 
             this.btn_MuteMusic.BackColor = System.Drawing.Color.Transparent;
+            this.btn_MuteMusic.BackgroundImage = global::_VP_Project___Crazy_Eater.Properties.Resources.ToggleMusicIMG;
             this.btn_MuteMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_MuteMusic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_MuteMusic.Location = new System.Drawing.Point(38, 58);
