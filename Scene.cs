@@ -370,6 +370,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Power(int value)
         {
+            if (ActivePower != -1) return;
             if (value > 0)
             {
                 ActivePower = value;

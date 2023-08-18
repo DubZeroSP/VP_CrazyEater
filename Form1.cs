@@ -167,6 +167,13 @@ namespace _VP_Project___Crazy_Eater
                     scene = new Scene(Width, Height);
                     StartTimer.Start();
                     timer1.Start();
+                    progressBar.Value = 0;
+                    progressBar.Maximum = 15;
+                    MouseLocation = MousePosition;
+                    Level = 1;
+                    InvincibilityCounter = 0;
+                    PowerText = "";
+                    SwapObsColl = false;
                 }
                 if (result == DialogResult.No) 
                 {
