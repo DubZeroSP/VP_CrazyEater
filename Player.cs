@@ -11,6 +11,8 @@ namespace _VP_Project___Crazy_Eater
     public class Player
     {
         public Point Position { get; set; }
+        //public Point ulCorner { get; set; }
+        //public Image newImage { get; set; }
         public Color Color { get; set; }
         public int Size { get; set; }
         public int Speed { get; set; }
@@ -18,6 +20,8 @@ namespace _VP_Project___Crazy_Eater
         public bool isInvincible { get; set; }
         public Player(Point pos)
         {
+            //Image newImage = Image.FromFile("Images\\HeroShipIMG.png");
+            //Point ulCorner = new Point((int)pos.X - 298, (int)pos.Y + 82);
             Color = Color.White;
             Position = pos;
             Size = 75;
@@ -33,6 +37,8 @@ namespace _VP_Project___Crazy_Eater
                 b = new SolidBrush(Color.LightGray);
             }
             g.FillEllipse(b, Position.X - Size / 2, Position.Y - Size / 2, Size, Size);
+            //Point ulCorner = new Point((int)Position.X - 298, (int)Position.Y + 82);
+            //g.DrawImage(newImage, ulCorner);
             b.Dispose();
 
             Brush healthBrush = new SolidBrush(Color.Pink);

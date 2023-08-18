@@ -170,7 +170,10 @@ namespace _VP_Project___Crazy_Eater
                 }
                 if (result == DialogResult.No) 
                 {
-                    Application.Exit();
+                    this.Hide();
+                    var form2 = new MainForm();
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
                 }
             }
         }

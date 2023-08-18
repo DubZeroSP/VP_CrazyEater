@@ -31,61 +31,56 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btn_StartGame = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.btn_Settings = new System.Windows.Forms.Button();
-            this.btn_Store = new System.Windows.Forms.Button();
+            this.btn_Options = new System.Windows.Forms.Button();
             this.btn_MuteMusic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_StartGame
             // 
-            this.btn_StartGame.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_StartGame.Location = new System.Drawing.Point(38, 291);
+            this.btn_StartGame.BackColor = System.Drawing.Color.Transparent;
+            this.btn_StartGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_StartGame.FlatAppearance.BorderSize = 0;
+            this.btn_StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_StartGame.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_StartGame.Location = new System.Drawing.Point(37, 305);
             this.btn_StartGame.Name = "btn_StartGame";
             this.btn_StartGame.Size = new System.Drawing.Size(289, 77);
             this.btn_StartGame.TabIndex = 0;
-            this.btn_StartGame.Text = "Start Game";
             this.btn_StartGame.UseVisualStyleBackColor = false;
             this.btn_StartGame.Click += new System.EventHandler(this.btn_StartGame_Click);
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Exit.Location = new System.Drawing.Point(38, 586);
+            this.btn_Exit.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Exit.Location = new System.Drawing.Point(38, 602);
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(145, 65);
+            this.btn_Exit.Size = new System.Drawing.Size(234, 44);
             this.btn_Exit.TabIndex = 1;
-            this.btn_Exit.Text = "Exit Game";
             this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // btn_Settings
+            // btn_Options
             // 
-            this.btn_Settings.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Settings.Location = new System.Drawing.Point(38, 374);
-            this.btn_Settings.Name = "btn_Settings";
-            this.btn_Settings.Size = new System.Drawing.Size(289, 77);
-            this.btn_Settings.TabIndex = 2;
-            this.btn_Settings.Text = "Settings";
-            this.btn_Settings.UseVisualStyleBackColor = false;
-            // 
-            // btn_Store
-            // 
-            this.btn_Store.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btn_Store.Location = new System.Drawing.Point(38, 457);
-            this.btn_Store.Name = "btn_Store";
-            this.btn_Store.Size = new System.Drawing.Size(289, 77);
-            this.btn_Store.TabIndex = 3;
-            this.btn_Store.Text = "Store";
-            this.btn_Store.UseVisualStyleBackColor = false;
+            this.btn_Options.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Options.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Options.Location = new System.Drawing.Point(38, 384);
+            this.btn_Options.Name = "btn_Options";
+            this.btn_Options.Size = new System.Drawing.Size(289, 77);
+            this.btn_Options.TabIndex = 2;
+            this.btn_Options.UseVisualStyleBackColor = false;
             // 
             // btn_MuteMusic
             // 
-            this.btn_MuteMusic.Location = new System.Drawing.Point(38, 32);
+            this.btn_MuteMusic.BackColor = System.Drawing.Color.Transparent;
+            this.btn_MuteMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_MuteMusic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_MuteMusic.Location = new System.Drawing.Point(38, 58);
             this.btn_MuteMusic.Name = "btn_MuteMusic";
-            this.btn_MuteMusic.Size = new System.Drawing.Size(110, 51);
+            this.btn_MuteMusic.Size = new System.Drawing.Size(184, 51);
             this.btn_MuteMusic.TabIndex = 4;
-            this.btn_MuteMusic.Text = "Toggle Music";
-            this.btn_MuteMusic.UseVisualStyleBackColor = true;
+            this.btn_MuteMusic.UseVisualStyleBackColor = false;
             this.btn_MuteMusic.Click += new System.EventHandler(this.btn_MuteMusic_Click);
             // 
             // MainForm
@@ -96,10 +91,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.btn_MuteMusic);
-            this.Controls.Add(this.btn_Store);
-            this.Controls.Add(this.btn_Settings);
+            this.Controls.Add(this.btn_Options);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_StartGame);
+            this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
@@ -112,7 +107,7 @@
 
         private System.Windows.Forms.Button btn_StartGame;
         private System.Windows.Forms.Button btn_Exit;
-        private System.Windows.Forms.Button btn_Settings;
+        private System.Windows.Forms.Button btn_Options;
         private System.Windows.Forms.Button btn_Store;
         private System.Windows.Forms.Button btn_MuteMusic;
     }

@@ -39,6 +39,7 @@ namespace _VP_Project___Crazy_Eater
             var form2 = new Form1();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
+            player.Stop();
         }
 
         private void btn_MuteMusic_Click(object sender, EventArgs e)
