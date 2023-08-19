@@ -15,8 +15,10 @@ namespace _VP_Project___Crazy_Eater
         //
         public int Width { get; set; }
         public int Height { get; set; }
-     
+        public Image GameBackground{ get; set; }
+
         public bool Rules { get; set; }
+        public Image RulesImage { get; set; }
         public int Level { get; set; }
 
         //Objects
@@ -28,10 +30,8 @@ namespace _VP_Project___Crazy_Eater
         //Properties
         public int obstacleSpeed { get; set; }
         public int obstacleSize { get; set; }
-        public Color obstacleColor { get; set; }
         public int collectableSize { get; set; }
         public int collectablePoints { get; set; }
-        public Color collectableColor { get; set; }
         public int powerupLevel { get; set; }
 
         //spawn rates = 1/# every 10th of a second
@@ -57,7 +57,9 @@ namespace _VP_Project___Crazy_Eater
             Width = width;
             Height = height;
             Level = 1;
+            GameBackground = Image.FromFile("Images/shrek.jpg");
             Rules = true;
+            RulesImage = Image.FromFile("Images/Rules.bmp");
 
             player = new Player(new Point(Width / 2, Height / 2));
             Obstacles = new List<Obstacle>();
@@ -65,10 +67,8 @@ namespace _VP_Project___Crazy_Eater
 
             obstacleSize = 50;
             obstacleSpeed = 4;
-            obstacleColor = Color.Black;
             collectableSize = 30;
             collectablePoints = 1;
-            collectableColor = Color.LightGreen;
 
             obstacleSpawnRate = 10;
             collectableSpawnRate = 20;
@@ -79,11 +79,11 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color.Gray);
-            g.FillRectangle(b, 0, 0, Width, Height);
+            g.DrawImage(GameBackground, 0, 0, Width, Height);
             if (Rules)
             {
-                Brush RulesBackground = new SolidBrush(Color.White);
+                g.DrawImage(RulesImage,10,50,300,250);
+                /*Brush RulesBackground = new SolidBrush(Color.White);
                 g.FillRectangle(RulesBackground, 10, 50, 300, 250);
                 RulesBackground.Dispose();
 
@@ -109,7 +109,7 @@ namespace _VP_Project___Crazy_Eater
                 Brush powerupBrush = new SolidBrush(Color.Purple);
                 g.FillEllipse(powerupBrush, 45, 255, 20, 20);
                 g.DrawString("- ???", f, TextBrush, 90, 240);
-                collectablesBrush.Dispose();
+                collectablesBrush.Dispose();*/
             }
             if (Laser)
             {
@@ -161,13 +161,13 @@ namespace _VP_Project___Crazy_Eater
                     case 1: x = 0; y = positionRNG.Next(Height); break;
                     default: y = Height; x = positionRNG.Next(Width); break;
                 }
-                Obstacles.Add(new Obstacle(new Point(x, y), dir,obstacleSize,obstacleSpeed,obstacleColor));
+                Obstacles.Add(new Obstacle(new Point(x, y), dir,obstacleSize,obstacleSpeed));
             }
             if (collectableSpawnRate != 0 && Collectables.Count < 15 && (Collectables.Count <= 3 || spawningRNG.Next(collectableSpawnRate) == 0))
             {
                 int x = positionRNG.Next(100,Width-225);
                 int y = positionRNG.Next(100,Height-250);
-                Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints,collectableColor));
+                Collectables.Add(new Collectable(new Point(x, y), collectableSize, collectablePoints));
             }
             if (powerupSpawnRate != 0 && PowerUp == null && ActivePower == -1 && spawningRNG.Next(powerupSpawnRate) == 0)
             {
@@ -229,16 +229,17 @@ namespace _VP_Project___Crazy_Eater
             }
             if (!SwapObsColl && player.isInvincible) return false;
             Point playerPos = player.Position;
-            int playerSize = player.Size/2;
+            float playerX = player.getXSize()/2;
+            float playerY = player.getYSize()/2;
 
             for (int i = 0; i < Obstacles.Count; i++)
             {
                 Point obstaclePos = Obstacles[i].Position;
-                int obstacleSize = Obstacles[i].Size / 2;
-                double xd = Math.Pow(obstaclePos.X-playerPos.X, 2);
-                double yd = Math.Pow(obstaclePos.Y-playerPos.Y, 2);
-                double d = Math.Sqrt(xd + yd);
-                if (d <= obstacleSize + playerSize)
+                float obstacleX = Obstacles[i].getXSize() / 2;
+                float obstacleY = Obstacles[i].getYSize() / 2;
+                double xd = Math.Abs(obstaclePos.X-playerPos.X);
+                double yd = Math.Abs(obstaclePos.Y-playerPos.Y);
+                if (xd <= obstacleX + playerX && yd <= obstacleY + playerY)
                 {   
                     if (!SwapObsColl)
                     {
@@ -259,15 +260,15 @@ namespace _VP_Project___Crazy_Eater
             if (SwapObsColl && player.isInvincible) return 0;
             int value = 0;
             Point playerPos = player.Position;
-            int playerSize = player.Size / 2;
+            float playerX = player.getXSize() / 2;
+            float playerY = player.getYSize() / 2;
             for (int i = 0; i < Collectables.Count; i++)
             {
                 Point collectablePos = Collectables[i].Position;
                 int collectableSize = Collectables[i].Size / 2;
-                double xd = Math.Pow(collectablePos.X - playerPos.X, 2);
-                double yd = Math.Pow(collectablePos.Y - playerPos.Y, 2);
-                double d = Math.Sqrt(xd + yd);
-                if (d <= collectableSize + playerSize)
+                double xd = Math.Abs(collectablePos.X - playerPos.X);
+                double yd = Math.Abs(collectablePos.Y - playerPos.Y);
+                if (xd <= collectableSize + playerX && yd <= collectableSize + playerY)
                 {
                     if (!SwapObsColl)
                     {
@@ -282,6 +283,24 @@ namespace _VP_Project___Crazy_Eater
                     }
                     
                 }
+            }
+            return value;
+        }
+        public int PowerUpHit()
+        {
+            int value = -1;
+            if (PowerUp == null) return value;
+            Point playerPos = player.Position;
+            float playerX = player.getXSize() / 2;
+            float playerY = player.getYSize() / 2;
+            Point powerupPos = PowerUp.Position;
+            int powerupSize = PowerUp.Size / 2;
+            double xd = Math.Abs(powerupPos.X - playerPos.X);
+            double yd = Math.Abs(powerupPos.Y - playerPos.Y);
+            if (xd <= powerupSize + playerX && yd <= powerupSize + playerY)
+            {
+                value = PowerUp.Hit();
+                PowerUp = null;
             }
             return value;
         }
@@ -350,24 +369,6 @@ namespace _VP_Project___Crazy_Eater
                 PowerUp = null;
             }
         }
-        public int PowerUpHit()
-        {
-            int value = -1;
-            if (PowerUp == null) return value;
-            Point playerPos = player.Position;
-            int playerSize = player.Size / 2;
-            Point powerupPos = PowerUp.Position;
-            int powerupSize = PowerUp.Size / 2;
-            double xd = Math.Pow(powerupPos.X - playerPos.X, 2);
-            double yd = Math.Pow(powerupPos.Y - playerPos.Y, 2);
-            double d = Math.Sqrt(xd + yd);
-            if (d <= powerupSize + playerSize)
-            {
-                value = PowerUp.Hit();
-                PowerUp = null;
-            }
-            return value;
-        }
         public void Power(int value)
         {
             if (ActivePower != -1) return;
@@ -390,9 +391,10 @@ namespace _VP_Project___Crazy_Eater
                     }
                     break; 
                 case 6: //Player = Obstacle
-                    player.Color = Color.Black;
+                    player.image = Image.FromFile("Images/Obstacle.bmp");
                     oldPlayerSize = player.Size;
                     player.Size = obstacleSize;
+                    player.ResetRatio();
                     break; 
                 case 7: //Reverse Controls
                     player.Speed *= -1;
@@ -408,7 +410,7 @@ namespace _VP_Project___Crazy_Eater
                     }
                     break; 
                 case 8: //Swap Obstacles & Collectables
-                    SwapObsColl = true;
+                   /* SwapObsColl = true;
                     obstacleColor = Color.LightGreen;
                     collectableColor = Color.Black;
                     foreach (Obstacle o in Obstacles)
@@ -419,7 +421,7 @@ namespace _VP_Project___Crazy_Eater
                     {
                         c.Color = Color.Black;
                     }
-                    break; 
+                    break; */
                 case 9: Laser = true; break; //Lazar
                 default: break;
             }
@@ -438,14 +440,15 @@ namespace _VP_Project___Crazy_Eater
                         c.Size /= 2; c.Points /= 2;
                     }
                     break;
-                case 6: 
-                    player.Color = Color.White;
+                case 6:
+                    player.image = Image.FromFile("Images/HeroShipIMG.png");
                     player.Size = oldPlayerSize;
                     oldPlayerSize = -1;
+                    player.ResetRatio();
                     break;
                 case 7: player.Speed *= -1; break;
                 case 8: 
-                    SwapObsColl = false;
+                    /*SwapObsColl = false;
                     obstacleColor = Color.Black; 
                     collectableColor = Color.LightGreen;
                     foreach (Obstacle o in Obstacles)
@@ -456,7 +459,7 @@ namespace _VP_Project___Crazy_Eater
                     {
                         c.Color = Color.LightGreen;
                     }
-                    break;
+                    break;*/
                 case 9: Laser = false; break;
                 default:break;
             }

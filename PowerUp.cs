@@ -27,10 +27,10 @@ namespace _VP_Project___Crazy_Eater
         public void Draw(Graphics g)
         {
             Brush b = new SolidBrush(Color.Purple);
-            g.FillEllipse(b, Position.X - Size/2, Position.Y - Size/2, Size, Size);
+            g.FillRectangle(b, Position.X - Size/2, Position.Y - Size/2, Size, Size);
             b.Dispose();
             Brush TimeBrush = new SolidBrush(Color.Magenta);
-            g.DrawString(Time.ToString(), new Font(FontFamily.GenericSansSerif, 10), TimeBrush, Position.X - 5, Position.Y - 5);
+            g.DrawString(Time.ToString(), new Font(FontFamily.GenericSansSerif, Size/2), TimeBrush, Position.X - Size/, Position.Y - Size/3);
             TimeBrush.Dispose();
         }
         public int Hit()

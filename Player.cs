@@ -11,35 +11,43 @@ namespace _VP_Project___Crazy_Eater
     public class Player
     {
         public Point Position { get; set; }
-        //public Point ulCorner { get; set; }
-        //public Image newImage { get; set; }
-        public Color Color { get; set; }
+        public Image image { get; set; }
         public int Size { get; set; }
+        public float Ratio { get; set; }
+        public int Direction { get; set; } //0 = up, 1 = right, 2 = down, 3 = left
         public int Speed { get; set; }
         public int Health { get; set; }
         public bool isInvincible { get; set; }
         public Player(Point pos)
         {
-            //Image newImage = Image.FromFile("Images\\HeroShipIMG.png");
-            //Point ulCorner = new Point((int)pos.X - 298, (int)pos.Y + 82);
-            Color = Color.White;
             Position = pos;
             Size = 75;
             Speed = 4;
             Health = 5;
             isInvincible = false;
+            image = Image.FromFile("Images\\HeroShipIMG.png");
+            Ratio = image.Width / image.Height;
+            Direction = 1;
         }
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color);
             if (isInvincible)
             {
-                b = new SolidBrush(Color.LightGray);
+                //TODO
             }
-            g.FillEllipse(b, Position.X - Size / 2, Position.Y - Size / 2, Size, Size);
-            //Point ulCorner = new Point((int)Position.X - 298, (int)Position.Y + 82);
-            //g.DrawImage(newImage, ulCorner);
-            b.Dispose();
+            int w, h;
+            RotateFlipType flip;
+            RotateFlipType revertflip;
+            switch (Direction)
+            {
+                case 0: h = (int)(Size * Ratio); w = Size; flip = RotateFlipType.Rotate270FlipNone; revertflip = RotateFlipType.Rotate90FlipNone; break;
+                case 1: w = (int)(Size * Ratio); h = Size; flip = RotateFlipType.RotateNoneFlipNone; revertflip = RotateFlipType.RotateNoneFlipNone; break;
+                case 2: h = (int)(Size * Ratio); w = Size; flip = RotateFlipType.Rotate90FlipNone; revertflip = RotateFlipType.Rotate270FlipNone; break;
+                default: w = (int)(Size * Ratio); h = Size; flip = RotateFlipType.Rotate180FlipNone; revertflip = RotateFlipType.Rotate180FlipNone; break;
+            }
+            image.RotateFlip(flip);
+            g.DrawImage(image, Position.X - w / 2, Position.Y - h / 2, w, h);
+            image.RotateFlip(revertflip);
 
             Brush healthBrush = new SolidBrush(Color.Pink);
             for (int j=1; j<=((Health-1)/10)+1; j++)
@@ -58,9 +66,13 @@ namespace _VP_Project___Crazy_Eater
             double vectorX = Towards.X - Position.X;
             double vectorY = Towards.Y - Position.Y;
 
+            int dirX = vectorX < 0 ? 3 : 1;
+            int dirY = vectorY < 0 ? 0 : 2;
+            Direction = Math.Abs(vectorX) < Math.Abs(vectorY) ? dirY : dirX;
+
             // Distance between points
             double distance = Math.Sqrt(vectorX * vectorX + vectorY * vectorY);
-            if (distance == 0)
+            if (distance < 5)
             {
                 return;
             }
@@ -79,6 +91,18 @@ namespace _VP_Project___Crazy_Eater
 
             // Change
             Position = new Point((int)positionX, (int)positionY);
+        }
+        public float getXSize()
+        {
+            return Direction % 2 == 0 ? Size : Size * Ratio;
+        }
+        public float getYSize()
+        {
+            return Direction % 2 == 0 ? Size * Ratio : Size ;
+        }
+        public void ResetRatio()
+        {
+            Ratio = image.Width / image.Height;
         }
     }
 }

@@ -11,22 +11,35 @@ namespace _VP_Project___Crazy_Eater
     public class Obstacle
     {
         public Point Position { get; set; }
-        public Color Color { get; set; }
         public int Size { get; set; }
+        public float Ratio { get; set; }
         public int Speed { get; set; }
         public int Direction { get; set; } //0 = up, 1 = right, 2 = down, 3 = left
-        public Obstacle(Point position,int direction, int size, int speed,Color color)
+        public Image image { get; set; }
+        public Obstacle(Point position,int direction, int size, int speed)
         {
-            Color = color;
             Position = position;
             Direction = direction;
             Size = size;
             Speed = speed;
+            image = Image.FromFile("Images/Obstacle.bmp");
+            Ratio = image.Width / image.Height;
         }
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color);
-            g.FillEllipse(b,Position.X-Size/2,Position.Y-Size/2,Size,Size);
+            int w, h;
+            RotateFlipType flip;
+            RotateFlipType revertflip;
+            switch (Direction)
+            {
+                case 0: h = (int)(Size * Ratio); w = Size; flip = RotateFlipType.Rotate270FlipNone; revertflip = RotateFlipType.Rotate90FlipNone; break;
+                case 1: w = (int)(Size * Ratio); h = Size; flip = RotateFlipType.RotateNoneFlipNone; revertflip = RotateFlipType.RotateNoneFlipNone;  break;
+                case 2: h = (int)(Size * Ratio); w = Size; flip = RotateFlipType.Rotate90FlipNone; revertflip = RotateFlipType.Rotate270FlipNone; break;
+                default: w = (int)(Size * Ratio); h = Size; flip = RotateFlipType.Rotate180FlipNone; revertflip = RotateFlipType.Rotate180FlipNone;  break;
+            }
+            image.RotateFlip(flip);
+            g.DrawImage(image,Position.X-w/2,Position.Y-h/2,w,h);
+            image.RotateFlip(revertflip);
         }
         public void Move()
         {
@@ -39,12 +52,24 @@ namespace _VP_Project___Crazy_Eater
             }
         }
         public bool isOutOfBounds(int width, int height)
-        {
-            if (Position.X < -25 || Position.X > width || Position.Y < -25 || Position.Y > height)
+        {   
+            if (Position.X < -(Size*Ratio) || Position.X > width + (Size * Ratio) || Position.Y < -(Size * Ratio) || Position.Y > height + (Size * Ratio))
             {
                 return true;
             }
             return false;
+        }
+        public float getXSize()
+        {
+            return Direction % 2 == 0 ? Size : Size * Ratio;
+        }
+        public float getYSize()
+        {
+            return Direction % 2 == 0 ? Size * Ratio : Size ;
+        }
+        public void ResetRatio()
+        {
+            Ratio = image.Width / image.Height;
         }
     }
 }
