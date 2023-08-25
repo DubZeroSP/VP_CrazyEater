@@ -57,7 +57,7 @@ namespace _VP_Project___Crazy_Eater
             Width = width;
             Height = height;
             Level = 1;
-            GameBackground = Image.FromFile("Images/shrek.jpg");
+            GameBackground = Image.FromFile("Images/stars_universe_space_118205_1280x720.jpg");
             Rules = true;
             RulesImage = Image.FromFile("Images/Rules.bmp");
 

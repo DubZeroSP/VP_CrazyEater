@@ -60,10 +60,10 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(1404, 11);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBar.Location = new System.Drawing.Point(1053, 9);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(269, 23);
+            this.progressBar.Size = new System.Drawing.Size(202, 19);
             this.progressBar.TabIndex = 0;
             // 
             // PowerUpTimer
@@ -81,12 +81,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.ClientSize = new System.Drawing.Size(1265, 687);
             this.Controls.Add(this.progressBar);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1703, 885);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1281, 726);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crazy Eater";

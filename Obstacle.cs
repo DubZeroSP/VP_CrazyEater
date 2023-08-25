@@ -22,7 +22,7 @@ namespace _VP_Project___Crazy_Eater
             Direction = direction;
             Size = size;
             Speed = speed;
-            image = Image.FromFile("Images/Obstacle.bmp");
+            image = Image.FromFile("Images\\EnemyIMG.png");
             Ratio = image.Width / image.Height;
         }
         public void Draw(Graphics g)

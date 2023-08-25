@@ -93,6 +93,16 @@ namespace _VP_Project___Crazy_Eater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap stars_universe_space_118205_1280x720 {
+            get {
+                object obj = ResourceManager.GetObject("stars_universe_space_118205_1280x720", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StartGameIMG {
             get {
                 object obj = ResourceManager.GetObject("StartGameIMG", resourceCulture);

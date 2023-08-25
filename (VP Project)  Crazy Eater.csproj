@@ -107,6 +107,7 @@
     <Content Include="Resources\Background.jpg" />
     <Content Include="Resources\ExitIMG.png" />
     <Content Include="Resources\OptionsIMG.png" />
+    <None Include="Resources\stars_universe_space_118205_1280x720.jpg" />
     <Content Include="Resources\StartGameIMG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
