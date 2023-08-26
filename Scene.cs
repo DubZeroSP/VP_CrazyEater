@@ -59,7 +59,7 @@ namespace _VP_Project___Crazy_Eater
             Level = 1;
             GameBackground = Image.FromFile("Images/stars_universe_space_118205_1280x720.jpg");
             Rules = true;
-            RulesImage = Image.FromFile("Images/Rules.bmp");
+            RulesImage = Image.FromFile("Images\\Rules.bmp");
 
             player = new Player(new Point(Width / 2, Height / 2));
             Obstacles = new List<Obstacle>();
@@ -79,7 +79,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Draw(Graphics g)
         {
-            g.DrawImage(GameBackground, 0, 0, Width, Height);
+            //g.DrawImage(GameBackground, 0, 0, Width, Height);
             if (Rules)
             {
                 g.DrawImage(RulesImage,10,50,300,250);
@@ -391,7 +391,7 @@ namespace _VP_Project___Crazy_Eater
                     }
                     break; 
                 case 6: //Player = Obstacle
-                    player.image = Image.FromFile("Images/Obstacle.bmp");
+                    player.image = Image.FromFile("Images/EnemyIMG.png");
                     oldPlayerSize = player.Size;
                     player.Size = obstacleSize;
                     player.ResetRatio();

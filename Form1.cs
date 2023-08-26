@@ -32,6 +32,8 @@ namespace _VP_Project___Crazy_Eater
 
             StartTimer.Interval = 5000;
             StartTimer.Start();
+            DrawTimer.Interval = 20;
+            DrawTimer.Start();
             timer1.Interval = 10;
             timer1.Start();
             DespawnTimer.Interval = 1000;
@@ -41,7 +43,6 @@ namespace _VP_Project___Crazy_Eater
             progressBar.SetBounds(Width - 300, 15, 270, 25);
             progressBar.Value = 0;
             progressBar.Maximum = 15;
-            
             
             
         }
@@ -124,7 +125,7 @@ namespace _VP_Project___Crazy_Eater
                     PowerUpTimer.Start();
                 }
             }
-            Invalidate();
+            //Invalidate();
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -232,6 +233,11 @@ namespace _VP_Project___Crazy_Eater
         {
             PowerText = "";
             PowerTextTimer.Stop();
+        }
+
+        private void DrawTimer_Tick(object sender, EventArgs e)
+        {
+            Invalidate();
         }
     }
 }

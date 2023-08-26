@@ -25,8 +25,8 @@ namespace _VP_Project___Crazy_Eater
             Speed = 4;
             Health = 5;
             isInvincible = false;
-            image = Image.FromFile("Images\\HeroShipIMG.png");
-            Ratio = image.Width / image.Height;
+            image = Image.FromFile("Images/HeroShipIMG.png");
+            Ratio = (float)image.Width / image.Height;
             Direction = 1;
         }
         public void Draw(Graphics g)

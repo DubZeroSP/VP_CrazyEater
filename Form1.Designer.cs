@@ -37,6 +37,7 @@
             this.PowerUpTimer = new System.Windows.Forms.Timer(this.components);
             this.DespawnTimer = new System.Windows.Forms.Timer(this.components);
             this.PowerTextTimer = new System.Windows.Forms.Timer(this.components);
+            this.DrawTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timer1
@@ -60,10 +61,10 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(1053, 9);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(2);
+            this.progressBar.Location = new System.Drawing.Point(1404, 11);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(202, 19);
+            this.progressBar.Size = new System.Drawing.Size(269, 23);
             this.progressBar.TabIndex = 0;
             // 
             // PowerUpTimer
@@ -79,14 +80,20 @@
             // 
             this.PowerTextTimer.Tick += new System.EventHandler(this.PowerTextTimer_Tick);
             // 
+            // DrawTimer
+            // 
+            this.DrawTimer.Tick += new System.EventHandler(this.DrawTimer_Tick);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 687);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1687, 846);
             this.Controls.Add(this.progressBar);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(1281, 726);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(1702, 883);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crazy Eater";
@@ -107,6 +114,7 @@
         private System.Windows.Forms.Timer PowerUpTimer;
         private System.Windows.Forms.Timer DespawnTimer;
         private System.Windows.Forms.Timer PowerTextTimer;
+        private System.Windows.Forms.Timer DrawTimer;
     }
 }
 
