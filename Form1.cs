@@ -114,8 +114,8 @@ namespace _VP_Project___Crazy_Eater
                     case 5: PowerText = "Double Points"; break;
                     case 6: PowerText = "Player = Obstacle"; break;
                     case 7: PowerText = "Reverse Controls"; break;
-                    case 8: PowerText = "Obstacles <-> Collectables"; SwapObsColl = true; break;
-                    case 9: PowerText = "Laser Mode!"; break;
+                    //case 8: PowerText = "Obstacles <-> Collectables"; SwapObsColl = true; break;
+                    case 8: PowerText = "Laser Mode!"; break;
 
                 }
                 DespawnTimer.Stop();

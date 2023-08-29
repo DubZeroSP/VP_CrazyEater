@@ -102,7 +102,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void ResetRatio()
         {
-            Ratio = image.Width / image.Height;
+            Ratio = (float)image.Width / image.Height;
         }
     }
 }

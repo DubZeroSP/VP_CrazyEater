@@ -342,7 +342,7 @@ namespace _VP_Project___Crazy_Eater
                     player.Speed = 6;
                     break;
                 case 5:
-                    powerupLevel = 10;
+                    powerupLevel = 9;
                     obstacleSpawnRate = 2;
                     obstacleSpeed = 6;
                     break;
@@ -409,8 +409,8 @@ namespace _VP_Project___Crazy_Eater
                         }
                     }
                     break; 
-                case 8: //Swap Obstacles & Collectables
-                   /* SwapObsColl = true;
+                /*case 8: //Swap Obstacles & Collectables
+                    SwapObsColl = true;
                     obstacleColor = Color.LightGreen;
                     collectableColor = Color.Black;
                     foreach (Obstacle o in Obstacles)
@@ -422,7 +422,7 @@ namespace _VP_Project___Crazy_Eater
                         c.Color = Color.Black;
                     }
                     break; */
-                case 9: Laser = true; break; //Lazar
+                case 8: Laser = true; break; //Lazar
                 default: break;
             }
         }
@@ -447,8 +447,8 @@ namespace _VP_Project___Crazy_Eater
                     player.ResetRatio();
                     break;
                 case 7: player.Speed *= -1; break;
-                case 8: 
-                    /*SwapObsColl = false;
+                /*case 8: 
+                    SwapObsColl = false;
                     obstacleColor = Color.Black; 
                     collectableColor = Color.LightGreen;
                     foreach (Obstacle o in Obstacles)
@@ -460,7 +460,7 @@ namespace _VP_Project___Crazy_Eater
                         c.Color = Color.LightGreen;
                     }
                     break;*/
-                case 9: Laser = false; break;
+                case 8: Laser = false; break;
                 default:break;
             }
             ActivePower = -1;
