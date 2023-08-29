@@ -1,9 +1,11 @@
-﻿using System;
+﻿using _VP_Project___Crazy_Eater.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,7 +59,7 @@ namespace _VP_Project___Crazy_Eater
             Width = width;
             Height = height;
             Level = 1;
-            GameBackground = Image.FromFile("Images/stars_universe_space_118205_1280x720.jpg");
+            GameBackground = Resources.GameBackground;
             Rules = true;
             RulesImage = Image.FromFile("Images\\Rules.bmp");
 
@@ -79,7 +81,7 @@ namespace _VP_Project___Crazy_Eater
         }
         public void Draw(Graphics g)
         {
-            //g.DrawImage(GameBackground, 0, 0, Width, Height);
+            g.DrawImage(GameBackground, 0, 0, Width, Height);
             if (Rules)
             {
                 g.DrawImage(RulesImage,10,50,300,250);
@@ -391,7 +393,7 @@ namespace _VP_Project___Crazy_Eater
                     }
                     break; 
                 case 6: //Player = Obstacle
-                    player.image = Image.FromFile("Images/EnemyIMG.png");
+                    player.image = Resources.EnemyIMG;
                     oldPlayerSize = player.Size;
                     player.Size = obstacleSize;
                     player.ResetRatio();
@@ -441,7 +443,7 @@ namespace _VP_Project___Crazy_Eater
                     }
                     break;
                 case 6:
-                    player.image = Image.FromFile("Images/HeroShipIMG.png");
+                    player.image = Resources.HeroShipIMG;
                     player.Size = oldPlayerSize;
                     oldPlayerSize = -1;
                     player.ResetRatio();

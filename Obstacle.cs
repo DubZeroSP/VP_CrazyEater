@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _VP_Project___Crazy_Eater.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace _VP_Project___Crazy_Eater
             Direction = direction;
             Size = size;
             Speed = speed;
-            image = Image.FromFile("Images\\EnemyIMG.png");
+            image = Resources.EnemyIMG;
             Ratio =(float) image.Width / image.Height;
         }
         public void Draw(Graphics g)

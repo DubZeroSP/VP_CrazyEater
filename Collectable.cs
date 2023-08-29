@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _VP_Project___Crazy_Eater.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace _VP_Project___Crazy_Eater
             Position = position;
             Size = size;
             Points = points;
-            image = Image.FromFile("Images/Collectable.bmp");
+            image = Resources.Collectable;
         }
         
         public void Draw(Graphics g)

@@ -102,6 +102,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="bin\Debug\Images\Collectable.png" />
+    <None Include="bin\Debug\Images\EnemyIMG.png" />
+    <None Include="bin\Debug\Images\HeroShipIMG.png" />
     <Content Include="Resources\Background.jpg" />
     <Content Include="Resources\ExitIMG.png" />
     <Content Include="Resources\OptionsIMG.png" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _VP_Project___Crazy_Eater.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -25,7 +26,7 @@ namespace _VP_Project___Crazy_Eater
             Speed = 4;
             Health = 5;
             isInvincible = false;
-            image = Image.FromFile("Images/HeroShipIMG.png");
+            image = Resources.HeroShipIMG;
             Ratio = (float)image.Width / image.Height;
             Direction = 1;
         }
