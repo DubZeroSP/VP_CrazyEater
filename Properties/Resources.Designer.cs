@@ -73,10 +73,69 @@ namespace _VP_Project___Crazy_Eater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BG_CrazyEater {
+            get {
+                object obj = ResourceManager.GetObject("BG_CrazyEater", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonTemplate {
+            get {
+                object obj = ResourceManager.GetObject("ButtonTemplate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Collectable {
             get {
                 object obj = ResourceManager.GetObject("Collectable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Collectable___Higher_Quality {
+            get {
+                object obj = ResourceManager.GetObject("Collectable___Higher_Quality", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Collectable1 {
+            get {
+                object obj = ResourceManager.GetObject("Collectable1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Collectable2 {
+            get {
+                object obj = ResourceManager.GetObject("Collectable2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream DamageSound {
+            get {
+                return ResourceManager.GetStream("DamageSound", resourceCulture);
             }
         }
         
@@ -103,9 +162,29 @@ namespace _VP_Project___Crazy_Eater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExitIMG1 {
+            get {
+                object obj = ResourceManager.GetObject("ExitIMG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GameBackground {
             get {
                 object obj = ResourceManager.GetObject("GameBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GameBackground___Copy {
+            get {
+                object obj = ResourceManager.GetObject("GameBackground___Copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +202,98 @@ namespace _VP_Project___Crazy_Eater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HeroShipIMG___Higher_Quality {
+            get {
+                object obj = ResourceManager.GetObject("HeroShipIMG___Higher_Quality", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Menu_Theme {
+            get {
+                return ResourceManager.GetStream("Menu_Theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Obstacle {
+            get {
+                object obj = ResourceManager.GetObject("Obstacle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OptionsIMG {
             get {
                 object obj = ResourceManager.GetObject("OptionsIMG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OptionsIMG1 {
+            get {
+                object obj = ResourceManager.GetObject("OptionsIMG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rules {
+            get {
+                object obj = ResourceManager.GetObject("Rules", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rules_0_5x {
+            get {
+                object obj = ResourceManager.GetObject("Rules@0.5x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rules1 {
+            get {
+                object obj = ResourceManager.GetObject("Rules1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shrek {
+            get {
+                object obj = ResourceManager.GetObject("shrek", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shrekgif {
+            get {
+                object obj = ResourceManager.GetObject("shrekgif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +331,9 @@ namespace _VP_Project___Crazy_Eater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Test31 {
+        internal static System.Drawing.Bitmap ToggleMusicIMG {
             get {
-                object obj = ResourceManager.GetObject("Test31", resourceCulture);
+                object obj = ResourceManager.GetObject("ToggleMusicIMG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +341,9 @@ namespace _VP_Project___Crazy_Eater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ToggleMusicIMG {
+        internal static System.Drawing.Bitmap transparentshrek {
             get {
-                object obj = ResourceManager.GetObject("ToggleMusicIMG", resourceCulture);
+                object obj = ResourceManager.GetObject("transparentshrek", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

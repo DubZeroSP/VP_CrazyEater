@@ -14,6 +14,7 @@ namespace _VP_Project___Crazy_Eater
 {
     public class Scene
     {
+        System.Media.SoundPlayer splayer = new System.Media.SoundPlayer();
         //
         public int Width { get; set; }
         public int Height { get; set; }
@@ -61,7 +62,7 @@ namespace _VP_Project___Crazy_Eater
             Level = 1;
             GameBackground = Resources.GameBackground;
             Rules = true;
-            RulesImage = Image.FromFile("Images\\Rules.bmp");
+            RulesImage = Resources.Rules;
 
             player = new Player(new Point(Width / 2, Height / 2));
             Obstacles = new List<Obstacle>();
@@ -247,6 +248,8 @@ namespace _VP_Project___Crazy_Eater
                     {
                         player.Health -= 1;
                         player.isInvincible = true;
+                        splayer.SoundLocation = "DamageSound.wav";
+                        splayer.Play();
                     }
                     else
                     {

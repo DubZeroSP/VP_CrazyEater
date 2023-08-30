@@ -70,6 +70,11 @@
     <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Scene.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -79,14 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,10 +105,33 @@
     <None Include="bin\Debug\Images\Collectable.png" />
     <None Include="bin\Debug\Images\EnemyIMG.png" />
     <None Include="bin\Debug\Images\HeroShipIMG.png" />
+    <None Include="bin\Debug\Images\BG_CrazyEater.png" />
+    <None Include="bin\Debug\DamageSound.wav" />
+    <None Include="bin\Debug\Menu_Theme.wav" />
+    <None Include="bin\Debug\Images\Background.jpg" />
+    <None Include="bin\Debug\Images\ButtonTemplate.png" />
+    <None Include="bin\Debug\Images\Collectable - Higher Quality.png" />
+    <None Include="bin\Debug\Images\Collectable.bmp" />
+    <None Include="bin\Debug\Images\ExitIMG.png" />
+    <None Include="bin\Debug\Images\GameBackground - Copy.jpg" />
+    <None Include="bin\Debug\Images\GameBackground.jpg" />
+    <None Include="bin\Debug\Images\HeroShipIMG - Higher Quality.png" />
+    <None Include="bin\Debug\Images\Obstacle.bmp" />
+    <None Include="bin\Debug\Images\OptionsIMG.png" />
+    <None Include="bin\Debug\Images\Rules.bmp" />
+    <None Include="bin\Debug\Images\shrek.jpg" />
+    <None Include="bin\Debug\Images\shrekgif.gif" />
+    <None Include="bin\Debug\Images\stars_universe_space_118205_1280x720.jpg" />
+    <None Include="bin\Debug\Images\StartGameIMG.png" />
+    <None Include="bin\Debug\Images\Test3.png" />
+    <None Include="bin\Debug\Images\ToggleMusicIMG.png" />
+    <None Include="bin\Debug\Images\transparentshrek.png" />
     <Content Include="Resources\Background.jpg" />
     <Content Include="Resources\ExitIMG.png" />
     <Content Include="Resources\OptionsIMG.png" />
     <None Include="Resources\stars_universe_space_118205_1280x720.jpg" />
+    <None Include="Resources\Rules.png" />
+    <None Include="Resources\Rules%400.5x.png" />
     <Content Include="Resources\StartGameIMG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

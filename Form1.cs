@@ -239,5 +239,10 @@ namespace _VP_Project___Crazy_Eater
         {
             Invalidate();
         }
+
+        private void progressBar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
