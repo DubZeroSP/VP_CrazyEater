@@ -22,7 +22,7 @@ namespace _VP_Project___Crazy_Eater
             InitializeComponent();
 
             player.Stream = Resources.Menu_Theme;
-            player.Play();
+            player.PlayLooping();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
