@@ -163,4 +163,13 @@
   <data name="Menu_Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menu_Theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="GameMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameMusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StartSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeathSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeathSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

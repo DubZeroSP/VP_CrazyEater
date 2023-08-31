@@ -60,12 +60,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Obstacle.cs" />
-    <Compile Include="OptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OptionsForm.Designer.cs">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />
@@ -102,12 +96,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\StartSound.wav" />
     <None Include="Resources\ToggleMusicIMG.png" />
     <Content Include="Resources\Background.jpg" />
     <None Include="Resources\ButtonTemplate.png" />
     <None Include="Resources\BG_CrazyEater.png" />
     <None Include="Resources\DamageSound.wav" />
+    <None Include="Resources\DeathSound.wav" />
     <Content Include="Resources\ExitIMG.png" />
+    <None Include="Resources\GameMusic.wav" />
     <None Include="Resources\Menu_Theme.wav" />
     <Content Include="Resources\OptionsIMG.png" />
     <None Include="Resources\stars_universe_space_118205_1280x720.jpg" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _VP_Project___Crazy_Eater.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,9 @@ namespace _VP_Project___Crazy_Eater
         public int InvincibilityCounter { get; set; }
         public string PowerText { get; set; }
         public bool SwapObsColl { get; set; }
+        System.Media.SoundPlayer GStart { get; set; }
+        System.Media.SoundPlayer GDeath { get; set; }
+        System.Media.SoundPlayer GGame { get; set; }
 
         public Form1()
         {
@@ -43,14 +47,21 @@ namespace _VP_Project___Crazy_Eater
             progressBar.SetBounds(Width - 300, 15, 270, 25);
             progressBar.Value = 0;
             progressBar.Maximum = 15;
-            
-            
+
+            GStart = new System.Media.SoundPlayer();
+            GDeath = new System.Media.SoundPlayer();
+            GGame = new System.Media.SoundPlayer();
+
+            GStart.Stream = Resources.StartSound;
+            GDeath.Stream = Resources.DeathSound;
+            GGame.Stream = Resources.GameMusic;
         }
         public void Start()
         {
             SpawnTimer.Interval = 100;
             SpawnTimer.Start();
             scene.Rules = false;
+            GStart.Play();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -157,6 +168,8 @@ namespace _VP_Project___Crazy_Eater
             {
                 SpawnTimer.Stop();
                 timer1.Stop();
+                GDeath.Play();
+
                 string Text = "YOU HAVE DIED";
                 string Caption = "Would you like to restart?";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -201,6 +214,7 @@ namespace _VP_Project___Crazy_Eater
         {
             StartTimer.Stop();
             Start();
+            GGame.PlayLooping();
         }
         private void LevelUp()
         {

@@ -30,7 +30,6 @@
         {
             this.btn_StartGame = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.btn_Options = new System.Windows.Forms.Button();
             this.btn_MuteMusic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -62,25 +61,13 @@
             this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // btn_Options
-            // 
-            this.btn_Options.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Options.BackgroundImage = global::_VP_Project___Crazy_Eater.Properties.Resources.OptionsIMG;
-            this.btn_Options.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Options.Location = new System.Drawing.Point(38, 384);
-            this.btn_Options.Name = "btn_Options";
-            this.btn_Options.Size = new System.Drawing.Size(289, 77);
-            this.btn_Options.TabIndex = 2;
-            this.btn_Options.Text = "S";
-            this.btn_Options.UseVisualStyleBackColor = false;
-            // 
             // btn_MuteMusic
             // 
             this.btn_MuteMusic.BackColor = System.Drawing.Color.Transparent;
             this.btn_MuteMusic.BackgroundImage = global::_VP_Project___Crazy_Eater.Properties.Resources.ToggleMusicIMG;
             this.btn_MuteMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_MuteMusic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_MuteMusic.Location = new System.Drawing.Point(38, 58);
+            this.btn_MuteMusic.Location = new System.Drawing.Point(37, 36);
             this.btn_MuteMusic.Name = "btn_MuteMusic";
             this.btn_MuteMusic.Size = new System.Drawing.Size(184, 51);
             this.btn_MuteMusic.TabIndex = 4;
@@ -95,7 +82,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.btn_MuteMusic);
-            this.Controls.Add(this.btn_Options);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_StartGame);
             this.DoubleBuffered = true;
@@ -111,7 +97,6 @@
 
         private System.Windows.Forms.Button btn_StartGame;
         private System.Windows.Forms.Button btn_Exit;
-        private System.Windows.Forms.Button btn_Options;
         private System.Windows.Forms.Button btn_Store;
         private System.Windows.Forms.Button btn_MuteMusic;
     }

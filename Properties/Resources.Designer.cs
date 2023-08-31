@@ -110,6 +110,15 @@ namespace _VP_Project___Crazy_Eater.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream DeathSound {
+            get {
+                return ResourceManager.GetStream("DeathSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap EnemyIMG {
@@ -136,6 +145,15 @@ namespace _VP_Project___Crazy_Eater.Properties {
             get {
                 object obj = ResourceManager.GetObject("GameBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream GameMusic {
+            get {
+                return ResourceManager.GetStream("GameMusic", resourceCulture);
             }
         }
         
@@ -195,6 +213,15 @@ namespace _VP_Project___Crazy_Eater.Properties {
             get {
                 object obj = ResourceManager.GetObject("StartGameIMG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream StartSound {
+            get {
+                return ResourceManager.GetStream("StartSound", resourceCulture);
             }
         }
         

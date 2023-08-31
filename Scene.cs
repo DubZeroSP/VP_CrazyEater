@@ -350,6 +350,7 @@ namespace _VP_Project___Crazy_Eater
                     powerupLevel = 9;
                     obstacleSpawnRate = 2;
                     obstacleSpeed = 6;
+                    player.Speed = 7;
                     break;
                 default:
                     obstacleSpawnRate = spawningRNG.Next(2, 7);
