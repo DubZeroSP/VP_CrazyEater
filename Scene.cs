@@ -75,7 +75,7 @@ namespace _VP_Project___Crazy_Eater
 
             obstacleSpawnRate = 10;
             collectableSpawnRate = 20;
-            powerupSpawnRate = 0;
+            powerupSpawnRate = 1;
 
             ActivePower = -1;
             oldPlayerSize = -1;
@@ -135,7 +135,7 @@ namespace _VP_Project___Crazy_Eater
                 o.Draw(g);
             }
             player.Draw(g);
-            Brush levelBrush = new SolidBrush(Color.LightSlateGray);
+            Brush levelBrush = new SolidBrush(Color.SkyBlue);
             g.DrawString(Level.ToString(), new Font(FontFamily.GenericSansSerif, 30), levelBrush, Width - 340, 7);
             levelBrush.Dispose();
         }
