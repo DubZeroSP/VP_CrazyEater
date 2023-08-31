@@ -14,7 +14,6 @@ namespace _VP_Project___Crazy_Eater
 {
     public class Scene
     {
-        System.Media.SoundPlayer splayer = new System.Media.SoundPlayer();
         //
         public int Width { get; set; }
         public int Height { get; set; }
@@ -53,6 +52,7 @@ namespace _VP_Project___Crazy_Eater
         public int oldPlayerSize { get; set; }
         public bool SwapObsColl { get; set; }
         public bool Laser { get; set; }
+        System.Media.SoundPlayer splayer = new System.Media.SoundPlayer();
 
 
         public Scene(int width, int height) 
@@ -79,6 +79,7 @@ namespace _VP_Project___Crazy_Eater
 
             ActivePower = -1;
             oldPlayerSize = -1;
+            splayer.Stream = Resources.DamageSound;
         }
         public void Draw(Graphics g)
         {
@@ -248,7 +249,6 @@ namespace _VP_Project___Crazy_Eater
                     {
                         player.Health -= 1;
                         player.isInvincible = true;
-                        splayer.Stream = Resources.DamageSound;
                         splayer.Play();
                     }
                     else
