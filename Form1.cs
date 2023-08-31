@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace _VP_Project___Crazy_Eater
 {
@@ -19,9 +20,9 @@ namespace _VP_Project___Crazy_Eater
         public int InvincibilityCounter { get; set; }
         public string PowerText { get; set; }
         public bool SwapObsColl { get; set; }
-        System.Media.SoundPlayer GStart { get; set; }
-        System.Media.SoundPlayer GDeath { get; set; }
-        System.Media.SoundPlayer GGame { get; set; }
+        public SoundPlayer GDeath { get; set; }
+        public SoundPlayer GGame { get; set; }
+        public System.Windows.Media.MediaPlayer GDamage { get; set; }
 
         public Form1()
         {
@@ -48,11 +49,10 @@ namespace _VP_Project___Crazy_Eater
             progressBar.Value = 0;
             progressBar.Maximum = 15;
 
-            GStart = new System.Media.SoundPlayer();
-            GDeath = new System.Media.SoundPlayer();
-            GGame = new System.Media.SoundPlayer();
+            GDeath = new SoundPlayer();
+            GGame = new SoundPlayer();
+            GDamage = new System.Windows.Media.MediaPlayer();
 
-            GStart.Stream = Resources.StartSound;
             GDeath.Stream = Resources.DeathSound;
             GGame.Stream = Resources.GameMusic;
         }
@@ -61,7 +61,6 @@ namespace _VP_Project___Crazy_Eater
             SpawnTimer.Interval = 100;
             SpawnTimer.Start();
             scene.Rules = false;
-            GStart.Play();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -87,6 +86,8 @@ namespace _VP_Project___Crazy_Eater
             {
                 if (!SwapObsColl)
                 {
+                    GDamage.Open(new Uri(Application.StartupPath + @"\Sounds\DamageSound.wav"));
+                    GDamage.Play();
                     InvincibilityTimer.Start();
                     CheckHealth();
                 }
