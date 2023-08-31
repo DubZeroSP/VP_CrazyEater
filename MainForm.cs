@@ -46,23 +46,9 @@ namespace _VP_Project___Crazy_Eater
 
         private void btn_MuteMusic_Click(object sender, EventArgs e)
         {
-            switch(isPlaying)
-               
-            {
-                case true:
-                {
-                        player.Stop();
-                        isPlaying = false;
-                        break;
-                }
-                case false: 
-                { 
-                        player.Play(); 
-                        isPlaying = true; 
-                        break;
-                }
-            }
-            
+            if (isPlaying) player.Stop();
+            else player.Play(); 
+            isPlaying = !isPlaying;
         }
     }
 }

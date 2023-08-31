@@ -58,7 +58,7 @@ namespace _VP_Project___Crazy_Eater
             scene.Draw(e.Graphics);
             if (PowerText != "")
             {
-                Brush textBrush = new SolidBrush(Color.Black);
+                Brush textBrush = new SolidBrush(Color.LightSlateGray);
                 e.Graphics.DrawString(PowerText, new Font(FontFamily.GenericSansSerif, 20), textBrush, Width/2 - 200 , 15);
             }
         }

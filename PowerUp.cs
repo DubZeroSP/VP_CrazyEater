@@ -27,7 +27,7 @@ namespace _VP_Project___Crazy_Eater
         public void Draw(Graphics g)
         {
             Brush b = new SolidBrush(Color.Purple);
-            g.FillRectangle(b, Position.X - Size/2, Position.Y - Size/2, Size, Size);
+            g.FillEllipse(b, Position.X - Size/2, Position.Y - Size/2, Size, Size);
             b.Dispose();
             Brush TimeBrush = new SolidBrush(Color.Magenta);
             g.DrawString(Time.ToString(), new Font(FontFamily.GenericSansSerif, Size/2), TimeBrush, Position.X - Size/3, Position.Y - Size/3);

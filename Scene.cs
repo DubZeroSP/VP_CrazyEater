@@ -85,7 +85,7 @@ namespace _VP_Project___Crazy_Eater
             g.DrawImage(GameBackground, 0, 0, Width, Height);
             if (Rules)
             {
-                g.DrawImage(RulesImage,10,50,300,250);
+                g.DrawImage(RulesImage,10,50,300,300);
                 /*Brush RulesBackground = new SolidBrush(Color.White);
                 g.FillRectangle(RulesBackground, 10, 50, 300, 250);
                 RulesBackground.Dispose();
@@ -134,7 +134,7 @@ namespace _VP_Project___Crazy_Eater
                 o.Draw(g);
             }
             player.Draw(g);
-            Brush levelBrush = new SolidBrush(Color.Black);
+            Brush levelBrush = new SolidBrush(Color.LightSlateGray);
             g.DrawString(Level.ToString(), new Font(FontFamily.GenericSansSerif, 30), levelBrush, Width - 340, 7);
             levelBrush.Dispose();
         }

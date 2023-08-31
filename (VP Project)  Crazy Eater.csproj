@@ -102,31 +102,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="bin\Debug\Images\Collectable.png" />
-    <None Include="bin\Debug\Images\EnemyIMG.png" />
-    <None Include="bin\Debug\Images\HeroShipIMG.png" />
-    <None Include="bin\Debug\Images\BG_CrazyEater.png" />
-    <None Include="bin\Debug\DamageSound.wav" />
-    <None Include="bin\Debug\Menu_Theme.wav" />
-    <None Include="bin\Debug\Images\Background.jpg" />
-    <None Include="bin\Debug\Images\ButtonTemplate.png" />
-    <None Include="bin\Debug\Images\Collectable - Higher Quality.png" />
-    <None Include="bin\Debug\Images\Collectable.bmp" />
-    <None Include="bin\Debug\Images\ExitIMG.png" />
-    <None Include="bin\Debug\Images\GameBackground - Copy.jpg" />
-    <None Include="bin\Debug\Images\GameBackground.jpg" />
-    <None Include="bin\Debug\Images\HeroShipIMG - Higher Quality.png" />
-    <None Include="bin\Debug\Images\Obstacle.bmp" />
-    <None Include="bin\Debug\Images\OptionsIMG.png" />
-    <None Include="bin\Debug\Images\Rules.bmp" />
-    <None Include="bin\Debug\Images\shrek.jpg" />
-    <None Include="bin\Debug\Images\shrekgif.gif" />
-    <None Include="bin\Debug\Images\stars_universe_space_118205_1280x720.jpg" />
-    <None Include="bin\Debug\Images\StartGameIMG.png" />
-    <None Include="bin\Debug\Images\Test3.png" />
-    <None Include="bin\Debug\Images\ToggleMusicIMG.png" />
-    <None Include="bin\Debug\Images\transparentshrek.png" />
+    <None Include="Resources\ToggleMusicIMG.png" />
     <Content Include="Resources\Background.jpg" />
+    <None Include="Resources\ButtonTemplate.png" />
+    <None Include="Resources\BG_CrazyEater.png" />
     <Content Include="Resources\ExitIMG.png" />
     <Content Include="Resources\OptionsIMG.png" />
     <None Include="Resources\stars_universe_space_118205_1280x720.jpg" />
