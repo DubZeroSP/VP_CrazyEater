@@ -89,7 +89,7 @@ namespace _VP_Project___Crazy_Eater
             int pts = scene.Collect();
             if (!SwapObsColl)
             {
-                progressBar.Value += pts;
+                progressBar.Value = Math.Min(progressBar.Value+pts,progressBar.Maximum);
             }
             else
             {
