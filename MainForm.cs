@@ -21,7 +21,7 @@ namespace _VP_Project___Crazy_Eater
         {
             InitializeComponent();
 
-            player.SoundLocation = "Menu_Theme.wav";
+            player.Stream = Resources.Menu_Theme;
             player.Play();
         }
 

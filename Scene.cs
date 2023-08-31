@@ -248,7 +248,7 @@ namespace _VP_Project___Crazy_Eater
                     {
                         player.Health -= 1;
                         player.isInvincible = true;
-                        splayer.SoundLocation = "DamageSound.wav";
+                        splayer.Stream = Resources.DamageSound;
                         splayer.Play();
                     }
                     else

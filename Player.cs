@@ -13,6 +13,7 @@ namespace _VP_Project___Crazy_Eater
     {
         public Point Position { get; set; }
         public Image image { get; set; }
+        public Image invicibilityImage { get; set; }
         public int Size { get; set; }
         public float Ratio { get; set; }
         public int Direction { get; set; } //0 = up, 1 = right, 2 = down, 3 = left
@@ -27,15 +28,12 @@ namespace _VP_Project___Crazy_Eater
             Health = 5;
             isInvincible = false;
             image = Resources.HeroShipIMG;
+            invicibilityImage = Resources.ToggleMusicIMG; //CHANGE THIS!!!!!!
             Ratio = (float)image.Width / image.Height;
             Direction = 1;
         }
         public void Draw(Graphics g)
         {
-            if (isInvincible)
-            {
-                //TODO
-            }
             int w, h;
             RotateFlipType flip;
             RotateFlipType revertflip;
@@ -46,9 +44,19 @@ namespace _VP_Project___Crazy_Eater
                 case 2: h = (int)(Size * Ratio); w = Size; flip = RotateFlipType.Rotate90FlipNone; revertflip = RotateFlipType.Rotate270FlipNone; break;
                 default: w = (int)(Size * Ratio); h = Size; flip = RotateFlipType.Rotate180FlipNone; revertflip = RotateFlipType.Rotate180FlipNone; break;
             }
-            image.RotateFlip(flip);
-            g.DrawImage(image, Position.X - w / 2, Position.Y - h / 2, w, h);
-            image.RotateFlip(revertflip);
+            if (isInvincible)
+            {
+                invicibilityImage.RotateFlip(flip);
+                g.DrawImage(invicibilityImage, Position.X - w / 2, Position.Y - h / 2, w, h);
+                invicibilityImage.RotateFlip(revertflip);
+            }
+            else
+            {
+                image.RotateFlip(flip);
+                g.DrawImage(image, Position.X - w / 2, Position.Y - h / 2, w, h);
+                image.RotateFlip(revertflip);
+            }
+            
 
             Brush healthBrush = new SolidBrush(Color.Pink);
             for (int j=1; j<=((Health-1)/10)+1; j++)

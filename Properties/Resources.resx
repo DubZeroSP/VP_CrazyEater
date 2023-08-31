@@ -121,9 +121,6 @@
   <data name="HeroShipIMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HeroShipIMG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DamageSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\DamageSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Rules@0.5x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rules@0.5x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,9 +132,6 @@
   </data>
   <data name="StartGameIMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StartGameIMG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Menu_Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Menu_Theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EnemyIMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnemyIMG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,5 +156,11 @@
   </data>
   <data name="BG_CrazyEater" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BG_CrazyEater.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DamageSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DamageSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Menu_Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu_Theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

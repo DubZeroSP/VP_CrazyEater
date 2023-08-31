@@ -106,7 +106,9 @@
     <Content Include="Resources\Background.jpg" />
     <None Include="Resources\ButtonTemplate.png" />
     <None Include="Resources\BG_CrazyEater.png" />
+    <None Include="Resources\DamageSound.wav" />
     <Content Include="Resources\ExitIMG.png" />
+    <None Include="Resources\Menu_Theme.wav" />
     <Content Include="Resources\OptionsIMG.png" />
     <None Include="Resources\stars_universe_space_118205_1280x720.jpg" />
     <None Include="Resources\Rules.png" />
