@@ -75,7 +75,7 @@ namespace _VP_Project___Crazy_Eater
 
             obstacleSpawnRate = 10;
             collectableSpawnRate = 20;
-            powerupSpawnRate = 1;
+            powerupSpawnRate = 0;
 
             ActivePower = -1;
             oldPlayerSize = -1;
