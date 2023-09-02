@@ -259,5 +259,10 @@ namespace _VP_Project___Crazy_Eater
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

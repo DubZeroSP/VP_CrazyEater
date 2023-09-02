@@ -28,7 +28,7 @@ namespace _VP_Project___Crazy_Eater
             Health = 5;
             isInvincible = false;
             image = Resources.HeroShipIMG;
-            invicibilityImage = Resources.ToggleMusicIMG; //CHANGE THIS!!!!!!
+            invicibilityImage = Resources.InvincibilityImage;
             Ratio = (float)image.Width / image.Height;
             Direction = 1;
         }
