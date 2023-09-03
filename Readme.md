@@ -45,13 +45,13 @@ their sizes. If a collision occurs, the appropriate number of points are
 then added to the level counter.
 
 ## Screenshots 
-<img src = "Screenshots/a.png">
+<img src = "Source Code/Screenshots/a.png">
 
-<img src = "Screenshots/b.png">
+<img src = "Source Code/Screenshots/b.png">
 
-<img src = "Screenshots/c.png">
+<img src = "Source Code/Screenshots/c.png">
 
-<img src = "Screenshots/d.png">
+<img src = "Source Code/Screenshots/d.png">
 
 ### Some Background Information
 
